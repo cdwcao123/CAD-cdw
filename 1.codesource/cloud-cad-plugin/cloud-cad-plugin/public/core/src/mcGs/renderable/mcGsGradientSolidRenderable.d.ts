@@ -1,0 +1,35 @@
+import { McRGB } from '../../mc';
+import { PickResult } from '../../mcCore';
+import { McGePlaneVolume, McGePoint, McGeVector3 } from '../../mcGe';
+import { McGeRaycaster } from '../../mcGe/mcGeRaycaster';
+import { McGsRenderable, McGsRendererBase } from '..';
+import { GsMergeGeometry } from '../types/interface';
+export declare class McGsGradientSolidRenderable extends McGsRenderable {
+    #private;
+    protected coords: McGePoint[];
+    protected indices: number[];
+    protected alpha: number;
+    protected mode: string;
+    protected startColor: McRGB;
+    protected endColor: McRGB;
+    constructor(renderBase: McGsRendererBase, coords: McGePoint[], indices: number[], mode?: string, startColor?: McRGB, endColor?: McRGB, alpha?: number, rotation?: number);
+    getAlpha(): number;
+    setAlpha(alpha: number): void;
+    getMode(): string;
+    setMode(mode: string): void;
+    protected getModeValue(): number;
+    getRotation(): number;
+    setRotation(rotation: number): void;
+    getStartColor(): McRGB;
+    setStartColor(color: McRGB): void;
+    getEndColor(): McRGB;
+    setEndColor(color: McRGB): void;
+    getMaterialCode(): string;
+    generateGeometry(center: McGeVector3, offset: number, indexOffset: number, isTransparent: boolean): GsMergeGeometry | null;
+    raycast(raycaster: McGeRaycaster): PickResult | null;
+    raycastVolume(planeVolume: McGePlaneVolume, isWrap?: boolean): boolean;
+    getHighLightData(): McGePoint[][] | null;
+    setColor(color: McRGB): void;
+    setHighLightColor(color: McRGB): void;
+    resetColor(): void;
+}

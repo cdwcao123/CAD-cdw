@@ -1,0 +1,32 @@
+{
+  "name": "cloud-cad-plugin",
+  "version": "0.1.0",
+  "description": "云图 CAD SDK 云端图纸接入插件",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "type-check": "vue-tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.node.json",
+    "build": "npm run type-check && vite build",
+    "preview": "vite preview",
+    "smoke:readonly": "node scripts/smoke-readonly.mjs",
+    "smoke:thumbnail": "node scripts/smoke-thumbnail.mjs"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "2.3.2",
+    "element-plus": "2.13.3",
+    "vue": "3.5.29"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@vitejs/plugin-vue": "^5.2.4",
+    "terser": "^5.51.2",
+    "typescript": "~5.8.3",
+    "vite": "6.3.3",
+    "vite-plugin-static-copy": "^3.4.0",
+    "vue-tsc": "~2.2.12"
+  }
+}

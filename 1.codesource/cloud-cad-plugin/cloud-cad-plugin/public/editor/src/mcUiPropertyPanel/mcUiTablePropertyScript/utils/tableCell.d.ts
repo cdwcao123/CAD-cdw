@@ -1,0 +1,20 @@
+import { CellRange, CellContentLayout, CellEdgeMask, McDbTable } from 'McCore';
+export declare const getPropertyCellRange: (entity: McDbTable) => CellRange | undefined;
+export declare const getPropertyCell: (entity: McDbTable) => {
+    row: number;
+    col: number;
+} | undefined;
+export declare const isSinglePropertyCell: (entity: McDbTable) => boolean;
+export declare const forEachPropertyCell: (entity: McDbTable, callback: (row: number, col: number) => void) => void;
+export declare const forEachPropertyRow: (entity: McDbTable, callback: (row: number) => void) => void;
+export declare const forEachPropertyColumn: (entity: McDbTable, callback: (col: number) => void) => void;
+export declare const getPropertyRangeValue: <T>(entity: McDbTable, getter: (row: number, col: number) => T, signature?: (value: T) => unknown) => T | "\u591A\u79CD" | undefined;
+export declare const getPropertyCellContent: (entity: McDbTable) => import('McCore').CellContent | undefined;
+export declare const getPropertyCellContents: (entity: McDbTable) => import('McCore').CellContent[];
+export declare const getPropertyCellLayout: (entity: McDbTable) => CellContentLayout;
+export declare const getPropertyCellStyleName: (entity: McDbTable) => string;
+export declare const getPropertyRowStyleName: (entity: McDbTable) => string;
+export declare const getPropertyColumnStyleName: (entity: McDbTable) => string;
+export declare const getCellContentTypeLabel: (entity: McDbTable) => string;
+export declare const getDataTypeLabel: (entity: McDbTable, contentIndex?: number) => string;
+export declare const propertyCellEdge = CellEdgeMask.kTopMask;

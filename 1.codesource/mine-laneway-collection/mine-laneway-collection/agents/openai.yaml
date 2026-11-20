@@ -1,0 +1,3 @@
+interface:
+  display_name: "矿井巷道采集"
+  short_description: "采集导线点、生成巷道并操作网页"

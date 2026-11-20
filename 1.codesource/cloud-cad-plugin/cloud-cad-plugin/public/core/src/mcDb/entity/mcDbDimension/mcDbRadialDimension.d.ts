@@ -1,0 +1,38 @@
+import { McMcdFiler } from '../../../mc/mcLoaders/mcMcdFiler';
+import { McMctfFiler } from '../../../mc/mcLoaders/mcMctfFiler';
+import { McDbDatabase, McDbDimStyle, MCEntitySnapPoints, MCEntityStretchPoints } from '../..';
+import { McGeMatrix4, McGeVector3 } from '../../../mcGe';
+import { McDbDimension } from './mcDbDimension';
+export declare class McDbRadialDimension extends McDbDimension {
+    #private;
+    protected readonly _type: string;
+    protected static readonly _className: string;
+    constructor(center: McGeVector3, chordPoint: McGeVector3, extArcStartAngle?: number, extArcEndAngle?: number, leaderLength?: number, text?: string, dimStyle?: string);
+    applyStyle(style: McDbDimStyle | undefined): void;
+    rebuildChildEntity(db: McDbDatabase, recursive?: boolean): void;
+    getLeaderLength(): number;
+    setLeaderLength(value: number): void;
+    getChordPoint(): McGeVector3;
+    setChordPoint(value: McGeVector3): void;
+    getCenter(): McGeVector3;
+    setCenter(value: McGeVector3): void;
+    getExtArcStartAngle(): number;
+    setExtArcStartAngle(newAngle: number): void;
+    getExtArcEndAngle(): number;
+    setExtArcEndAngle(newAngle: number): void;
+    getDimArrowType(): string;
+    setDimArrowType(value: string): void;
+    getDimArrowSize(): number;
+    setDimArrowSize(value: number): void;
+    getCircularCenterMarkSize(): number;
+    setCircularCenterMarkSize(value: number): void;
+    getStretchPoints(): MCEntityStretchPoints[];
+    setStretchPoints(indexPoints: MCEntityStretchPoints[]): void;
+    getSnapPoints(is2D: boolean): MCEntitySnapPoints[];
+    createGrips(): void;
+    transformBy(matrix: McGeMatrix4): boolean;
+    mctfInFields(fields: McMctfFiler): void;
+    mctfOutFields(fields: McMctfFiler): void;
+    mcdInFields(filer: McMcdFiler): void;
+    mcdOutFields(filer: McMcdFiler): void;
+}

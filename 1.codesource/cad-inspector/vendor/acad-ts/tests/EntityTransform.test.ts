@@ -1,0 +1,151 @@
+import { describe, expect, it } from 'vitest';
+import { Arc } from '../src/Entities/Arc.js';
+import { Ellipse } from '../src/Entities/Ellipse.js';
+import { Hatch, HatchBoundaryPath, HatchBoundaryPathLine } from '../src/Entities/Hatch.js';
+import { HatchPattern, HatchPatternLine } from '../src/Entities/HatchPattern.js';
+import { Insert } from '../src/Entities/Insert.js';
+import { Line } from '../src/Entities/Line.js';
+import { XYZ } from '../src/Math/XYZ.js';
+import { XY } from '../src/Math/XY.js';
+import { BlockRecord } from '../src/Tables/BlockRecord.js';
+import { Wall } from '../src/Entities/AecObjects/Wall.js';
+import { MultiLeader } from '../src/Entities/MultiLeader.js';
+import { BreakInfo, LeaderLine, LeaderRoot, StartEndPointPair } from '../src/Objects/MultiLeaderObjectContextData.js';
+
+describe('EntityTransformTests', () => {
+	it('TransformsWallGeometryAndDimensions', () => {
+		const wall = new Wall();
+		wall.startPoint = new XYZ(0, 0, 0);
+		wall.endPoint = new XYZ(5, 0, 0);
+		wall.width = 2;
+		wall.height = 3;
+		wall.baseHeight = 1;
+
+		wall.applyScaling(new XYZ(2, 3, 4));
+		wall.applyTranslation(new XYZ(1, 2, 3));
+
+		expect(wall.startPoint).toEqual(new XYZ(1, 2, 3));
+		expect(wall.endPoint).toEqual(new XYZ(11, 2, 3));
+		expect(wall.length).toBeCloseTo(10);
+		expect(wall.width).toBeCloseTo(6);
+		expect(wall.height).toBeCloseTo(12);
+		expect(wall.baseHeight).toBeCloseTo(4);
+		expect(wall.normal).toEqual(new XYZ(0, 0, 1));
+	});
+
+	it('TransformsMultiLeaderGeometryAndSizes', () => {
+		const multiLeader = new MultiLeader();
+		const root = new LeaderRoot();
+		const line = new LeaderLine();
+		multiLeader.contextData.basePoint = new XYZ(1, 2, 0);
+		multiLeader.contextData.textLocation = new XYZ(3, 4, 0);
+		multiLeader.contextData.baseDirection = new XYZ(1, 1, 0);
+		multiLeader.contextData.blockContentScale = new XYZ(1, 1, 1);
+		multiLeader.arrowheadSize = 2;
+		root.connectionPoint = new XYZ(2, 1, 0);
+		root.direction = new XYZ(1, 1, 0);
+		line.points = [new XYZ(0, 0, 0), new XYZ(4, 2, 0)];
+		const breakInfo = new BreakInfo();
+		breakInfo.startEndPoints = [new StartEndPointPair(new XYZ(1, 0, 0), new XYZ(2, 0, 0))];
+		line.breakInfoEntries = [breakInfo];
+		root.lines.push(line);
+		multiLeader.contextData.leaderRoots.push(root);
+
+		multiLeader.applyScaling(new XYZ(2, 3, 1));
+		multiLeader.applyTranslation(new XYZ(5, -1, 0));
+
+		expect(multiLeader.contextData.basePoint).toEqual(new XYZ(7, 5, 0));
+		expect(multiLeader.contextData.textLocation).toEqual(new XYZ(11, 11, 0));
+		expect(root.connectionPoint).toEqual(new XYZ(9, 2, 0));
+		expect(line.points).toEqual([new XYZ(5, -1, 0), new XYZ(13, 5, 0)]);
+		expect(line.breakInfoEntries[0].startEndPoints[0].startPoint).toEqual(new XYZ(7, -1, 0));
+		expect(root.direction.x).toBeCloseTo(new XYZ(2, 3, 0).normalize().x);
+		expect(root.direction.y).toBeCloseTo(new XYZ(2, 3, 0).normalize().y);
+		expect(multiLeader.arrowheadSize).toBeCloseTo(5);
+		expect(multiLeader.contextData.blockContentScale).toEqual(new XYZ(2, 3, 1));
+	});
+
+	it('AppliesBaseRotationWrapperToEllipse', () => {
+		const ellipse = new Ellipse();
+		ellipse.center = new XYZ(1, 0, 0);
+		ellipse.majorAxisEndPoint = new XYZ(2, 0, 0);
+		ellipse.radiusRatio = 0.5;
+
+		ellipse.applyRotation(XYZ.axisZ, Math.PI / 2);
+
+		expect(ellipse.center.x).toBeCloseTo(0, 6);
+		expect(ellipse.center.y).toBeCloseTo(1, 6);
+		expect(ellipse.majorAxisEndPoint.x).toBeCloseTo(0, 6);
+		expect(ellipse.majorAxisEndPoint.y).toBeCloseTo(2, 6);
+	});
+
+	it('TranslatesHatchBoundaryEdgesAndSeedPoints', () => {
+		const line = new HatchBoundaryPathLine();
+		line.start = new XY(0, 0);
+		line.end = new XY(4, 1);
+
+		const path = new HatchBoundaryPath([line]);
+		const hatch = new Hatch();
+		hatch.paths.push(path);
+		hatch.seedPoints = [new XY(1, 1)];
+
+		hatch.applyTranslation(new XYZ(3, -2, 0));
+
+		const transformed = hatch.paths[0].edges[0] as HatchBoundaryPathLine;
+		expect(transformed.start.x).toBeCloseTo(3);
+		expect(transformed.start.y).toBeCloseTo(-2);
+		expect(transformed.end.x).toBeCloseTo(7);
+		expect(transformed.end.y).toBeCloseTo(-1);
+		expect(hatch.seedPoints[0].x).toBeCloseTo(4);
+		expect(hatch.seedPoints[0].y).toBeCloseTo(-1);
+	});
+
+	it('UpdatesHatchPatternGeometryOnTransform', () => {
+		const patternLine = new HatchPatternLine();
+		patternLine.basePoint = new XY(1, 2);
+		patternLine.offset = new XY(0, 1);
+		patternLine.dashLengths = [2, -1];
+
+		const pattern = new HatchPattern('TEST');
+		pattern.lines.push(patternLine);
+
+		const hatch = new Hatch();
+		hatch.pattern = pattern;
+		hatch.patternScale = 1;
+
+		hatch.applyScaling(new XYZ(2, 2, 1));
+
+		expect(hatch.patternScale).toBeCloseTo(2);
+		expect(patternLine.basePoint.x).toBeCloseTo(2);
+		expect(patternLine.basePoint.y).toBeCloseTo(4);
+		expect(patternLine.offset.x).toBeCloseTo(0);
+		expect(patternLine.offset.y).toBeCloseTo(2);
+		expect(patternLine.dashLengths).toEqual([4, -2]);
+	});
+
+	it('ReturnsInsertBoundsAndExplodedEntitiesFromBlockTransform', () => {
+		const block = new BlockRecord('Test');
+		block.entities.add(new Line(new XYZ(0, 0, 0), new XYZ(2, 1, 0)));
+		block.entities.add(new Arc(new XYZ(1, 1, 0), 1, 0, Math.PI / 2));
+
+		const insert = new Insert(block);
+		insert.insertPoint = new XYZ(5, -1, 0);
+		insert.xScale = 2;
+		insert.yScale = 3;
+
+		const bounds = insert.getBoundingBox();
+		const exploded = Array.from(insert.explode());
+		const explodedLine = exploded.find((entity): entity is Line => entity instanceof Line);
+
+		expect(bounds).not.toBeNull();
+		expect(bounds?.min.x).toBeCloseTo(5);
+		expect(bounds?.min.y).toBeCloseTo(-1);
+		expect(bounds?.max.x).toBeCloseTo(9);
+		expect(bounds?.max.y).toBeCloseTo(5);
+		expect(explodedLine).toBeDefined();
+		expect(explodedLine?.startPoint.x).toBeCloseTo(5);
+		expect(explodedLine?.startPoint.y).toBeCloseTo(-1);
+		expect(explodedLine?.endPoint.x).toBeCloseTo(9);
+		expect(explodedLine?.endPoint.y).toBeCloseTo(2);
+	});
+});

@@ -1,0 +1,35 @@
+import { McGeIntersectType } from './types/enums';
+import { McGeBaseLine2d, McGeBitFlag, McGeCurve2d, McGeExtent2, McGeLine2d, McGeObject, McGeObject3d, McGeObjectList, McGePoint2d, McGePoint3d, McGeVector2, McGeVector3 } from './index';
+export declare class McGeSeg2d extends McGeLine2d {
+    protected readonly _type: string;
+    protected static readonly _className: string;
+    constructor();
+    constructor(line: McGeBaseLine2d);
+    constructor(pt0: McGePoint2d | McGePoint3d, pt1: McGePoint2d | McGePoint3d);
+    constructor(pt0: McGePoint2d | McGePoint3d, vct: McGeVector2);
+    setStartPoint(pt: McGePoint2d | McGePoint3d): void;
+    getEndPoint(): McGePoint2d;
+    setEndPoint(pt: McGePoint2d | McGePoint3d): void;
+    getMidPoint(): McGePoint2d;
+    clone(): McGeSeg2d;
+    intersectWith(obj: McGeObject, res: McGeObjectList, nExt?: McGeIntersectType): boolean;
+    getClosestPoint(pt: McGeVector3, bExtend?: boolean): McGeVector3 | null;
+    getClosestPointInVec(pt: McGeVector3, bExtend: boolean, vtDir: McGeVector3): McGeVector3 | null;
+    getPtFromParam(pa: number, pt: McGePoint2d | McGePoint3d): boolean;
+    getParamFromPt(pt: McGePoint2d | McGePoint3d): number;
+    getDistFromPa(pa: number): number;
+    getPaFromDist(dist: number): number;
+    isPointOn(pt: McGePoint2d | McGePoint3d): boolean;
+    hitTest(pt: McGeVector3): McGeBitFlag;
+    isFinite(bStart: boolean): boolean;
+    getExtendCurve(): McGeCurve2d;
+    length(): number;
+    reverse(): void;
+    split(paList: number[], res: McGeObjectList): void;
+    convert3D(): McGeObject3d;
+    isInclude(obj: McGeObject): boolean;
+    getExtend2D(res: McGeExtent2): boolean;
+    isSameSeg(seg: McGeSeg2d, bSameDirection?: boolean): boolean;
+    subtractBy(seg: McGeSeg2d, res: McGeObjectList): boolean;
+    subtractByObjList(oList: McGeObjectList, res: McGeObjectList): void;
+}

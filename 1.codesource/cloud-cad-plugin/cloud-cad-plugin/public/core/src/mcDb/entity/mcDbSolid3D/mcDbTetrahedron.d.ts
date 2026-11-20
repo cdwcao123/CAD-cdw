@@ -1,0 +1,30 @@
+import { McMcdFiler, McMctfFiler } from '../../../mc';
+import { McEngine2D, McEngine3D } from '../../../mcCore';
+import { Solid3DType } from '../../types/enum';
+import { McGeVector3 } from '../../../mcGe';
+import { McDbSolid3DBase } from './mcDbSolid3DBase';
+import { MCEntitySnapPoints, MCEntityStretchPoints } from '../../types/interface';
+export declare class McDbTetrahedron extends McDbSolid3DBase {
+    #private;
+    protected readonly _type: string;
+    protected static readonly _className: string;
+    constructor(center?: McGeVector3, edgeLength?: number);
+    getSolid3DType(): Solid3DType;
+    getCenter(): McGeVector3;
+    setCenter(value: McGeVector3): void;
+    getEdgeLength(): number;
+    setEdgeLength(value: number): void;
+    getVertices(): McGeVector3[];
+    worldDraw2d(engine: McEngine2D): void;
+    worldDraw3d(engine: McEngine3D): void;
+    getStretchPoints(): MCEntityStretchPoints[];
+    setStretchPoints(indexPoints: MCEntityStretchPoints[]): void;
+    getSnapPoints(is2D: boolean): MCEntitySnapPoints[];
+    protected createGrips(): void;
+    private configureShapeGrip;
+    private scaleVerticesByControlPointDistance;
+    mctfInFields(fields: McMctfFiler): void;
+    mctfOutFields(fields: McMctfFiler): void;
+    mcdInFields(filer: McMcdFiler): void;
+    mcdOutFields(filer: McMcdFiler): void;
+}

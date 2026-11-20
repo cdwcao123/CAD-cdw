@@ -1,0 +1,17 @@
+declare const PI: number;
+declare const DPI = 0.017453292519943295;
+declare const PID = 57.29577951308232;
+declare const PI2 = 6.283185307179586;
+declare const PI_DIV48 = 0.065449847;
+declare const PI_DIV32 = 0.0981747705;
+declare const PI_DIV24 = 0.1308996939;
+declare const PI_DIV18 = 0.1745329252;
+declare const PI_DIV16 = 0.1963495409;
+declare const PI_DIV14 = 0.2243994753;
+declare const PI_DIV12 = 0.2617993878;
+declare const PI_DIV10 = 0.3141592654;
+declare const PI_DIV08 = 0.3926990817;
+declare const PI_DIV06 = 0.5235987756;
+declare const PI_DIV04 = 0.7853981634;
+declare const PI_DIV02 = 1.5707963267;
+export { PI, DPI, PID, PI2, PI_DIV48, PI_DIV32, PI_DIV24, PI_DIV18, PI_DIV16, PI_DIV14, PI_DIV12, PI_DIV10, PI_DIV08, PI_DIV06, PI_DIV04, PI_DIV02, };

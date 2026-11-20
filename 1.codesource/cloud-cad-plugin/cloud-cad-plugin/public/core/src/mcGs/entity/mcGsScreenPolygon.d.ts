@@ -1,0 +1,35 @@
+import { McGeRaycaster } from '../../mcGe/mcGeRaycaster';
+import { McGsScreenLine } from '..';
+import { McEngine } from '../../mcCore/mcView/mcEngine';
+import { McGePlaneVolume } from '../../mcGe/mcGePlaneVolume';
+import { GsScreenPolygonOption } from '../types/interface';
+import * as THREE from '../../../lib/ThreeJS/Three.js';
+export declare class McGsScreenPolygon extends THREE.Mesh {
+    readonly isGsObject: boolean;
+    protected show: boolean;
+    protected canPick: boolean;
+    protected lineWidth: number;
+    protected lineColor: THREE.Color;
+    protected color: THREE.Color;
+    protected alpha: number;
+    protected coords: THREE.Vector2[];
+    protected line: McGsScreenLine | null;
+    protected engine: McEngine;
+    constructor(engine: McEngine, coords: THREE.Vector2[], option?: GsScreenPolygonOption);
+    buildGeometry(): THREE.BufferGeometry;
+    buildMaterial(): THREE.Material;
+    buildLine(lineCoords: THREE.Vector2[]): McGsScreenLine;
+    raycast(raycaster: McGeRaycaster, intersects: THREE.Intersection[]): void;
+    raycastVolume(planeVolume: McGePlaneVolume, isWrap?: boolean): boolean;
+    resetSize(w: number, h: number): void;
+    getShow(): boolean;
+    setShow(show: boolean): void;
+    getLineWidth(): number;
+    setLineWidth(width: number): void;
+    getColor(): THREE.Color;
+    setColor(color: THREE.Color): void;
+    getLineColor(): THREE.Color;
+    setLineColor(color: THREE.Color): void;
+    getCoords(): THREE.Vector2[];
+    setCoords(coords: THREE.Vector2[]): void;
+}

@@ -1,0 +1,31 @@
+import { McCore, McMenuActionShowFun } from '../../mcCore';
+export declare class McMenuGroup {
+    name: string;
+    priority: number;
+    children: Map<string, McMenuGroup>;
+    parent: McMenuGroup | null;
+    mcCore: McCore;
+    showAsMenu: boolean;
+    showSeparator: boolean;
+    protected canShowFun: McMenuActionShowFun | null;
+    constructor(mcCore: McCore, name: string, priority?: number);
+    clearChildren(): void;
+    addMenuAction(menuAction: McMenuGroup): boolean;
+    removeMenuAction(name: string): void;
+    getChildren(): Map<string, McMenuGroup>;
+    getName(): string;
+    setName(name: string): void;
+    getPriority(): number;
+    setPriority(value: number): void;
+    getShowAsMenu(): boolean;
+    setShowAsMenu(showAsMenu: boolean): void;
+    getShowSeparator(): boolean;
+    setShowSeparator(showSeparator: boolean): void;
+    getParent(): McMenuGroup | null;
+    setParent(parent: McMenuGroup | null): void;
+    getCore(): McCore;
+    getCanShowFun(): McMenuActionShowFun | null;
+    setCanShowFun(value: McMenuActionShowFun | null): void;
+    canShow(): boolean;
+    isAction(): boolean;
+}

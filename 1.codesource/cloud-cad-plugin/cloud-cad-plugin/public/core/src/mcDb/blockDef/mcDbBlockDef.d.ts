@@ -1,0 +1,35 @@
+import { McMcdFiler, McMctfFiler } from '../../mc';
+import { McDbEntity, McDbAttributeDef, McDbDatabase } from '..';
+import { McGeVector3 } from '../../mcGe';
+import { McDbSymbolTableRecord } from '../mcDbSymbolTableRecord';
+export declare class McDbBlockDef extends McDbSymbolTableRecord {
+    #private;
+    protected readonly _type: string;
+    protected static readonly _className: string;
+    constructor(name: string, reNameable?: boolean);
+    getOrigin(): McGeVector3;
+    setOrigin(value: McGeVector3): void;
+    getComments(): string;
+    setComments(value: string): void;
+    getPathName(): string;
+    setPathName(value: string): void;
+    getEntities(): McDbEntity[];
+    setDb(db: McDbDatabase): void;
+    addAttributeDef(attr: McDbAttributeDef): boolean;
+    setAttributeDef(attr: McDbAttributeDef): void;
+    getAttributeDefByTag(tag: string): McDbAttributeDef | undefined;
+    getAttributeDef(): McDbAttributeDef[];
+    removeAttributeDefById(objectId: string): boolean;
+    hasAttribute(): boolean;
+    getPreviewIcon(): ArrayBuffer | null;
+    setPreviewIcon(value: ArrayBuffer | null): void;
+    addEntity(ent: McDbEntity): boolean;
+    getScaleUniformly(): boolean;
+    setScaleUniformly(value: boolean): void;
+    getAllowExploding(): boolean;
+    setAllowExploding(value: boolean): void;
+    mctfInFields(fields: McMctfFiler): Promise<void>;
+    mctfOutFields(fields: McMctfFiler): void;
+    mcdInFields(fields: McMcdFiler): Promise<void>;
+    mcdOutFields(fields: McMcdFiler): void;
+}

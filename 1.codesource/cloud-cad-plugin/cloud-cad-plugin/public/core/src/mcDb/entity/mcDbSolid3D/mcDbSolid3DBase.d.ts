@@ -1,0 +1,34 @@
+import { McMcdFiler } from '../../../mc/mcLoaders/mcMcdFiler';
+import { McMctfFiler } from '../../../mc/mcLoaders/mcMctfFiler';
+import { McEngine3D } from '../../../mcCore';
+import { McDbDatabase } from '../../mcDbDatabase';
+import { Solid3DType } from '../../types/enum';
+import { McGeMatrix4, McGeVector3 } from '../../../mcGe';
+import { McDbCustomEntity } from '../mcDbCustomEntity';
+export declare class McDbSolid3DBase extends McDbCustomEntity {
+    protected readonly _type: string;
+    protected static readonly _className: string;
+    protected solidType: Solid3DType;
+    protected position: McGeVector3;
+    protected scale: McGeVector3;
+    protected rotation: McGeVector3;
+    protected imageDef: string | undefined;
+    getSolidType(): Solid3DType;
+    getPosition(): McGeVector3;
+    setPosition(value: McGeVector3): void;
+    getScale(): McGeVector3;
+    setScale(value: McGeVector3): void;
+    getRotation(): McGeVector3;
+    setRotation(value: McGeVector3): void;
+    getImageDef(): string | undefined;
+    setImageDef(value: string | undefined): void;
+    constructor();
+    getTransform(): McGeMatrix4;
+    rebuildChildEntity(db: McDbDatabase, recursive?: boolean): void;
+    worldDraw3d(engine: McEngine3D): void;
+    transformBy(matrix: McGeMatrix4): boolean;
+    mctfInFields(sourceFields: McMctfFiler): void;
+    mctfOutFields(targetFields: McMctfFiler): void;
+    mcdInFields(filer: McMcdFiler): void;
+    mcdOutFields(filer: McMcdFiler): void;
+}

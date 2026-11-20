@@ -1,0 +1,12 @@
+import fs from 'node:fs'
+const [input, pageArg = '0', sizeArg = '10'] = process.argv.slice(2)
+const page = Number(pageArg), size = Number(sizeArg)
+if (!input || !Number.isInteger(page) || page < 0 || !Number.isInteger(size) || size < 1 || size > 50) throw new Error('Usage: review-page.mjs evidence.json [page, zero-based] [page-size, 1..50]')
+const data = JSON.parse(fs.readFileSync(input, 'utf8').replace(/^\uFEFF/, ''))
+if (!Array.isArray(data.candidates) || !data.entities || !data.evidence_sha256) throw new Error('Invalid evidence file')
+const total = Math.ceil(data.candidates.length / size)
+if (page >= total && !(page === 0 && total === 0)) throw new Error('Page out of range')
+const candidates = data.candidates.slice(page * size, (page + 1) * size)
+const ids = new Set(candidates.flatMap(c => [c.circle_id, ...c.nearby_texts.map(t => t.id)]))
+const entities = Object.fromEntries([...ids].filter(id => data.entities[id]).map(id => [id, data.entities[id]]))
+console.log(JSON.stringify({ source_sha256: data.source_sha256, evidence_sha256: data.evidence_sha256, page, total_pages: total, total_candidates: data.candidates.length, candidates, entities }))

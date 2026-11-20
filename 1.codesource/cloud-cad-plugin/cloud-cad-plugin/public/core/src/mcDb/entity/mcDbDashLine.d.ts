@@ -1,0 +1,33 @@
+import { McMcdFiler } from '../../mc/mcLoaders/mcMcdFiler';
+import { McMctfFiler } from '../../mc/mcLoaders/mcMctfFiler';
+import { McReturnStatus } from '../../mc/mcReturnStatus';
+import { McEngine2D, McEngine3D } from '../../mcCore';
+import { McGeVector3, McGeMatrix4 } from '../../mcGe';
+import { MCEntitySnapPoints, MCEntityStretchPoints } from '../types/interface';
+import { McDbEntity } from './mcDbEntity';
+export declare class McDbDashLine extends McDbEntity {
+    #private;
+    protected readonly _type: string;
+    protected static readonly _className: string;
+    constructor(vts?: McGeVector3[]);
+    addVertexAt(index: number, pt: McGeVector3): boolean;
+    removeVertexAt(index: number): boolean;
+    numVertex(): number;
+    getPointAt(index: number): McGeVector3 | null;
+    setPointAt(index: number, pt: McGeVector3): McReturnStatus<string>;
+    transformBy(matrix: McGeMatrix4): boolean;
+    getSpace(): number;
+    setSpace(space: number): void;
+    getLength(): number;
+    getPolygonArea(): number;
+    worldDraw2d(engine: McEngine2D): void;
+    worldDraw3d(engine: McEngine3D): void;
+    getStretchPoints(): MCEntityStretchPoints[];
+    setStretchPoints(indexPoints: MCEntityStretchPoints[]): void;
+    getSnapPoints(is2D: boolean): MCEntitySnapPoints[];
+    protected createGrips(): void;
+    mctfInFields(fields: McMctfFiler): Promise<void>;
+    mctfOutFields(fields: McMctfFiler): void;
+    mcdInFields(fields: McMcdFiler): Promise<void>;
+    mcdOutFields(fields: McMcdFiler): void;
+}

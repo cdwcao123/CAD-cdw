@@ -1,0 +1,16 @@
+export declare const VERSION = "0.0.1";
+export declare const SUPPORTFILETYPE: string[];
+export declare const DELATIVE = 800;
+export declare const tempDrawingUrlParamId = "mcTempId";
+export declare const recentDrawingSessionKey = "mc:recentDrawing:restoreId";
+export declare const tempDrawingRecentSessionKeyPrefix = "mc:tempDrawing:recentId:";
+export declare const tempDrawingUrlParamVersion = "mcTempVer";
+export declare const tempDrawingUrlParamVersionValue = "1";
+export declare const tempDrawingTtlMs: number;
+export declare const tempDrawingIdSessionKey = "tempDrawingTabDataId";
+export declare const tempDrawingTabSessionKey = "tempDrawingTabSessionId";
+export declare const drawingBrowserSessionKey = "mc:drawingBrowserSession";
+export declare const tempDrawingTabSessionUrlParam = "mcTabSessionId";
+export declare const tempDrawingCloseSignalPrefix = "mc:tempDrawing:close:";
+export declare const tempDrawingCloseGraceMs = 1500;
+export declare const editorConfigGlobalKey = "__MC_EDITOR_CONFIG__";

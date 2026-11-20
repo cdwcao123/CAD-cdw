@@ -1,0 +1,50 @@
+import { Component } from 'vue';
+import { ToolTipContents } from '../../mcUiToolTip';
+import { PlacementType, TriggerType } from './type';
+export interface Props {
+    menuData: MenuItem[];
+    placement?: PlacementType;
+    trigger?: TriggerType;
+    triggerText?: string;
+    showArrow?: boolean;
+    closeOnClickOutside?: boolean;
+    disabled?: boolean;
+    offset?: number;
+    menuCom?: string | Component;
+    maxHeight?: number;
+    multiple?: boolean;
+    activeMenuKey?: string[];
+}
+export interface MenuItem {
+    key: string;
+    label: string;
+    translateLabel?: boolean;
+    showLabel?: boolean;
+    showArrow?: boolean;
+    icon?: string;
+    iconSize?: number;
+    activeIcon?: string;
+    iconColor?: string;
+    active?: boolean;
+    shortcut?: string;
+    disabled?: boolean;
+    noAuthority?: boolean;
+    divider?: boolean;
+    children?: MenuItem[];
+    action?: string;
+    actionFun?: Function;
+    placement?: PlacementType;
+    needCore?: boolean;
+    desc?: string;
+    value?: any;
+    isCovered?: boolean;
+    type?: number;
+    component?: string | Component;
+    menuCom?: string | Component;
+    isChangeLabel?: boolean;
+    detailToolTip?: ToolTipContents[];
+    searchable?: boolean;
+    searchAlias?: string[];
+    searchText?: string;
+    searchWeight?: number;
+}

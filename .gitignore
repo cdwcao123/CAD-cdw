@@ -1,0 +1,25 @@
+# 依赖
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+# 注意：不忽略 *.pyd（vendor 目录下 ezdxf 的编译模块需要随仓库分发）
+!*.pyd
+.venv/
+venv/
+
+# 系统与编辑器
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+
+# 日志
+*.log
+npm-debug.log*
+
+# pre-commit 框架运行时临时文件（全局钩子被杀时会残留）
+tmp-sys-pre-commit-config.yaml
+tmp.precommit.gitignore

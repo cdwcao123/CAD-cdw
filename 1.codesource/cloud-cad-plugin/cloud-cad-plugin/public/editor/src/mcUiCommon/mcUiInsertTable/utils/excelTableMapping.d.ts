@@ -1,0 +1,11 @@
+import { CellAlignment, GridLineStyle, McColor, McDbLineWeight } from 'McCore';
+import { ExcelBorderData, ExcelCellData, ExcelColorData, ExcelTableData } from '../types/interface';
+import { BorderStyle } from 'exceljs';
+export declare const excelPointsToCadUnits: (points: number) => number;
+export declare const excelColumnWidthToCadUnits: (width: number) => number;
+export declare const excelColorToMcColor: (color: ExcelColorData) => McColor;
+export declare const getExcelCellAlignment: (cell: ExcelCellData) => CellAlignment;
+export declare const getExcelBorderLineWeight: (style: BorderStyle) => McDbLineWeight;
+export declare const getExcelGridLineStyle: (style: BorderStyle) => GridLineStyle;
+export declare const chooseExcelBorder: (first: ExcelBorderData, second?: ExcelBorderData) => ExcelBorderData;
+export declare const createExcelPreviewTableData: (data: ExcelTableData) => ExcelTableData;

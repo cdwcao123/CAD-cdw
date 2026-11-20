@@ -1,0 +1,30 @@
+{
+  "name": "cad-standard-reviewer",
+  "displayName": "CAD图样标准化审查",
+  "version": "1.3.0-preview.22",
+  "backendApiVersion": 3,
+  "permissions": [
+    "engine.generate"
+  ],
+  "type": "full-page",
+  "entry": "index.js",
+  "icon": "icon.svg",
+  "description": "使用上传的规则和可选标准库审查 DXF/DWG 图纸；模型与解析器协同识别文档，集合版本固定审查依据",
+  "enabled": true,
+  "menuApiVersion": 1,
+  "contributes": {
+    "menus": [
+      {
+        "id": "main",
+        "label": "CAD图样审查",
+        "icon": "file-text",
+        "open": {
+          "type": "plugin-default"
+        },
+        "target": {
+          "type": "left-sidebar"
+        }
+      }
+    ]
+  }
+}

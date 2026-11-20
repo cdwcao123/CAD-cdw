@@ -1,0 +1,37 @@
+import { McColor } from '../../mc/mcColor';
+import { McMcdFiler } from '../../mc/mcLoaders/mcMcdFiler';
+import { McMctfFiler } from '../../mc/mcLoaders/mcMctfFiler';
+import { McDbEntity } from '../entity';
+import { McDbSymbolTableRecord } from '../mcDbSymbolTableRecord';
+import { McDbLineWeight } from '../types/enum';
+export declare class McDbLayer extends McDbSymbolTableRecord {
+    #private;
+    protected readonly _type: string;
+    protected static readonly _className: string;
+    constructor(name?: string, reNameable?: boolean);
+    getIsFrozen(): boolean;
+    setIsFrozen(isFrozen: boolean): void;
+    getIsLocked(): boolean;
+    setIsLocked(isLocked: boolean): void;
+    getIsOff(): boolean;
+    setIsOff(isOff: boolean): void;
+    getIsPrintable(): boolean;
+    setIsPrintable(isPrintable: boolean): void;
+    getColor(): McColor;
+    setColor(color: McColor): void;
+    getLineType(): string;
+    setLineType(value: string): void;
+    getLineWeight(): McDbLineWeight;
+    setLineWeight(lineWeight: McDbLineWeight): void;
+    getDesc(): string;
+    setDesc(name: string): void;
+    getTransparency(): number;
+    setTransparency(transparency: number): boolean;
+    updateEntity(entity: McDbEntity): void;
+    updateRefEntity(changedOld: Record<string, any>, changedNew: Record<string, any>): Promise<void>;
+    static default: () => McDbLayer;
+    mctfInFields(fields: McMctfFiler): Promise<void>;
+    mctfOutFields(fields: McMctfFiler): void;
+    mcdInFields(fields: McMcdFiler): Promise<void>;
+    mcdOutFields(fields: McMcdFiler): void;
+}

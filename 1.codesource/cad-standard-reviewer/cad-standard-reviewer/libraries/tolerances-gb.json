@@ -1,0 +1,230 @@
+{
+  "schemaVersion": 1,
+  "type": "tolerance",
+  "id": "tolerances-gb",
+  "name": "GB/T 1800.1-2020 公差带库（内置）",
+  "version": "2020",
+  "standard": "GB/T 1800.1-2020",
+  "letters": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "J",
+    "K",
+    "M",
+    "N",
+    "P",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "X",
+    "Y",
+    "Z",
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h",
+    "j",
+    "k",
+    "m",
+    "n",
+    "p",
+    "r",
+    "s",
+    "t",
+    "u",
+    "v",
+    "x",
+    "y",
+    "z"
+  ],
+  "grades": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+  ],
+  "fits": [
+    {
+      "designation": "H7/h6",
+      "hole": "H7",
+      "shaft": "h6",
+      "type": "unknown"
+    },
+    {
+      "designation": "H7/g6",
+      "hole": "H7",
+      "shaft": "g6",
+      "type": "unknown"
+    },
+    {
+      "designation": "H7/f7",
+      "hole": "H7",
+      "shaft": "f7",
+      "type": "unknown"
+    },
+    {
+      "designation": "H7/e8",
+      "hole": "H7",
+      "shaft": "e8",
+      "type": "unknown"
+    },
+    {
+      "designation": "H7/d9",
+      "hole": "H7",
+      "shaft": "d9",
+      "type": "unknown"
+    },
+    {
+      "designation": "H7/js6",
+      "hole": "H7",
+      "shaft": "js6",
+      "type": "unknown"
+    },
+    {
+      "designation": "H7/k6",
+      "hole": "H7",
+      "shaft": "k6",
+      "type": "unknown"
+    },
+    {
+      "designation": "H7/m6",
+      "hole": "H7",
+      "shaft": "m6",
+      "type": "unknown"
+    },
+    {
+      "designation": "H7/n6",
+      "hole": "H7",
+      "shaft": "n6",
+      "type": "unknown"
+    },
+    {
+      "designation": "H7/p6",
+      "hole": "H7",
+      "shaft": "p6",
+      "type": "unknown"
+    },
+    {
+      "designation": "H7/r6",
+      "hole": "H7",
+      "shaft": "r6",
+      "type": "unknown"
+    },
+    {
+      "designation": "H7/s6",
+      "hole": "H7",
+      "shaft": "s6",
+      "type": "unknown"
+    },
+    {
+      "designation": "H7/u6",
+      "hole": "H7",
+      "shaft": "u6",
+      "type": "unknown"
+    },
+    {
+      "designation": "H8/f7",
+      "hole": "H8",
+      "shaft": "f7",
+      "type": "unknown"
+    },
+    {
+      "designation": "H8/h7",
+      "hole": "H8",
+      "shaft": "h7",
+      "type": "unknown"
+    },
+    {
+      "designation": "H8/js7",
+      "hole": "H8",
+      "shaft": "js7",
+      "type": "unknown"
+    },
+    {
+      "designation": "H8/k7",
+      "hole": "H8",
+      "shaft": "k7",
+      "type": "unknown"
+    },
+    {
+      "designation": "H9/d9",
+      "hole": "H9",
+      "shaft": "d9",
+      "type": "unknown"
+    },
+    {
+      "designation": "H9/h9",
+      "hole": "H9",
+      "shaft": "h9",
+      "type": "unknown"
+    },
+    {
+      "designation": "H11/h11",
+      "hole": "H11",
+      "shaft": "h11",
+      "type": "unknown"
+    },
+    {
+      "designation": "K7/h6",
+      "hole": "K7",
+      "shaft": "h6",
+      "type": "unknown"
+    },
+    {
+      "designation": "N7/h6",
+      "hole": "N7",
+      "shaft": "h6",
+      "type": "unknown"
+    },
+    {
+      "designation": "P7/h6",
+      "hole": "P7",
+      "shaft": "h6",
+      "type": "unknown"
+    },
+    {
+      "designation": "JS7/h6",
+      "hole": "JS7",
+      "shaft": "h6",
+      "type": "unknown"
+    },
+    {
+      "designation": "H7/H6",
+      "hole": "H7",
+      "shaft": "H6",
+      "type": "unknown"
+    },
+    {
+      "designation": "H8/H7",
+      "hole": "H8",
+      "shaft": "H7",
+      "type": "unknown"
+    }
+  ]
+}

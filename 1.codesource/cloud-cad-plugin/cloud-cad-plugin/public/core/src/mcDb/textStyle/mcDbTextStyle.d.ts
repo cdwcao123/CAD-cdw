@@ -1,0 +1,34 @@
+import { McMcdFiler } from '../../mc/mcLoaders/mcMcdFiler';
+import { McMctfFiler } from '../../mc/mcLoaders/mcMctfFiler';
+import { McDbSymbolTableRecord } from '../mcDbSymbolTableRecord';
+export declare class McDbTextStyle extends McDbSymbolTableRecord {
+    #private;
+    protected readonly _type: string;
+    protected static readonly _className: string;
+    constructor(name?: string, reNameable?: boolean);
+    static createSimSun(): McDbTextStyle;
+    static createStandard(): McDbTextStyle;
+    getFileName(): string;
+    setFileName(fileName: string): void;
+    getBigFontFileName(): string;
+    setBigFontFileName(bigFontFileName: string): void;
+    getTextSize(): number;
+    _getValidTextSize(): number;
+    setTextSize(height: number): void;
+    getXScale(): number;
+    setXScale(scale: number): void;
+    getOblique(): number;
+    setOblique(angle: number): void;
+    getIsVertical(): boolean;
+    setVertical(vertical: boolean): void;
+    getIsShapeFile(): boolean;
+    setShapeFile(useShape: boolean): void;
+    getIsBackwards(): boolean;
+    setBackwards(backwards: boolean): void;
+    getIsUpsideDown(): boolean;
+    setUpsideDown(upsideDown: boolean): void;
+    mctfInFields(fields: McMctfFiler): Promise<void>;
+    mctfOutFields(fields: McMctfFiler): void;
+    mcdInFields(fields: McMcdFiler): Promise<void>;
+    mcdOutFields(fields: McMcdFiler): void;
+}

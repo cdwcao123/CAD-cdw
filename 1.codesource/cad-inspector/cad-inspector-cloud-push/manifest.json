@@ -1,0 +1,31 @@
+{
+  "name": "cad-inspector",
+  "displayName": "图纸测点采集",
+  "version": "5.9.1",
+  "backendApiVersion": 3,
+  "description": "导入 DWG 或 DXF 图纸，通过默认模型采集独立测点并导出 JSON。",
+  "type": "full-page",
+  "entry": "index.js",
+  "icon": "icon.svg",
+  "permissions": [
+    "engine.generate",
+    "egress",
+    "config.read"
+  ],
+  "menuApiVersion": 1,
+  "contributes": {
+    "menus": [
+      {
+        "id": "main",
+        "label": "图纸测点采集",
+        "icon": "plugin",
+        "open": {
+          "type": "plugin-default"
+        },
+        "target": {
+          "type": "left-sidebar"
+        }
+      }
+    ]
+  }
+}

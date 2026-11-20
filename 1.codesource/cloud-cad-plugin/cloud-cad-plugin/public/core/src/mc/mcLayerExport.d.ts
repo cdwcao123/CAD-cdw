@@ -1,0 +1,18 @@
+import { McCore } from '../mcCore';
+import { McDbDatabase, McDbEntity, McDbGroup } from '../mcDb';
+import { ExportLayerDrawingOptions, MarkLayerDrawingInCurrentOptions, MarkLayerDrawingInCurrentResult, MergeLayerDrawingIntoCurrentOptions, MergeLayerDrawingIntoCurrentResult, RemoveLayerDrawingFromCurrentOptions, RemoveLayerDrawingFromCurrentResult, TestExportLayerDrawingDownloadOptions, TestExportLayerDrawingDownloadResult, TestMergeLayerDrawingFromFileOptions, TestMergeLayerDrawingFromFileResult } from './types/interface';
+export declare const mergeLayerDrawingDatabaseIntoCurrent: (targetDb: McDbDatabase, sourceDb: McDbDatabase) => MergeLayerDrawingIntoCurrentResult;
+export declare const mergeLayerDrawingDatabaseIntoCurrentAsync: (targetDb: McDbDatabase, sourceDb: McDbDatabase, options?: Pick<MergeLayerDrawingIntoCurrentOptions, "batchSize" | "onProgress">) => Promise<MergeLayerDrawingIntoCurrentResult>;
+export declare const mergeLayerEntitiesDatabaseIntoCurrentAsync: (targetDb: McDbDatabase, sourceDb: McDbDatabase, entityIds: string[], options?: Pick<MergeLayerDrawingIntoCurrentOptions, "batchSize" | "onProgress">) => Promise<MergeLayerDrawingIntoCurrentResult>;
+export declare const deserializeLayerDrawingToDatabase: (data: ArrayBuffer | File, textCode?: string, onProgress?: MergeLayerDrawingIntoCurrentOptions["onProgress"], keepProgressOpen?: boolean, silentTaskProgress?: boolean) => Promise<McDbDatabase>;
+export declare const mergeLayerDrawingIntoCurrent: (options: MergeLayerDrawingIntoCurrentOptions) => Promise<MergeLayerDrawingIntoCurrentResult>;
+export declare const markLayerDrawingInCurrent: (options: MarkLayerDrawingInCurrentOptions) => MarkLayerDrawingInCurrentResult;
+export declare const removeLayerDrawingFromCurrent: (options: RemoveLayerDrawingFromCurrentOptions) => RemoveLayerDrawingFromCurrentResult;
+export declare const testMergeLayerDrawingFromFile: (options?: TestMergeLayerDrawingFromFileOptions) => Promise<TestMergeLayerDrawingFromFileResult>;
+export declare const getLayerEntitiesFromDatabase: (db: McDbDatabase, layerName: string) => McDbEntity[];
+export declare const getLayerEntities: (core: McCore, layerName: string) => McDbEntity[];
+export declare const exportLayerDrawingDatabaseToArrayBuffer: (db: McDbDatabase, layerName: string) => ArrayBuffer;
+export declare const exportLayerDrawingToArrayBuffer: (core: McCore, layerName: string) => ArrayBuffer;
+export declare const exportLayerDrawing: (core: McCore, layerName: string, options?: ExportLayerDrawingOptions) => ArrayBuffer | Blob | File;
+export declare const testExportLayerDrawingAndDownload: (options?: TestExportLayerDrawingDownloadOptions) => TestExportLayerDrawingDownloadResult;
+export declare const exportGroupDrawingToArrayBuffer: (core: McCore, group: McDbGroup) => ArrayBuffer;

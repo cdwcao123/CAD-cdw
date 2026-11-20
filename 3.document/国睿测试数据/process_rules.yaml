@@ -1,0 +1,127 @@
+rules:
+- id: SEC-001
+  name: 必须包含适用范围章节
+  type: required_section
+  target: 适用范围
+  exact: false
+  severity: error
+  suggestion: 请增加“适用范围”章节。
+  source:
+    document_id: QJ-SPEC-001
+    version: V1.0
+    clause: '3.1'
+    authority: mandatory
+- id: CODE-001
+  name: 工艺编号格式检查
+  type: regex
+  keyword: 工艺编号
+  pattern: ^GY-[A-Z]{2}-\d{4}-V\d\.\d$
+  severity: error
+  required: true
+  case_sensitive: true
+  table_value_cells: 1
+  suggestion: 请按照 GY-XX-0000-V0.0 的格式填写工艺编号。
+  source:
+    document_id: QJ-SPEC-001
+    version: V1.0
+    clause: '4.1'
+    authority: mandatory
+- id: CODE-002
+  name: 设备编号格式检查
+  type: regex
+  keyword: 设备编号
+  pattern: ^EQ-\d{4}$
+  severity: error
+  required: true
+  case_sensitive: true
+  table_value_cells: 1
+  suggestion: 请按照 EQ-0000 的格式填写设备编号。
+- id: CODE-003
+  name: 文件版本格式检查
+  type: regex
+  keyword: 版本号
+  pattern: ^V\d+\.\d+$
+  severity: error
+  required: true
+  case_sensitive: true
+  table_value_cells: 1
+  suggestion: 版本号应采用 V1.0、V1.1 等格式。
+  source:
+    document_id: QJ-SPEC-001
+    version: V1.0
+    clause: '4.2'
+    authority: mandatory
+- id: PARAM-001
+  name: 干燥温度范围及单位检查
+  type: parameter_range
+  keyword: 干燥温度
+  min: 60
+  max: 90
+  unit: ℃
+  unit_required: true
+  severity: error
+  required: true
+  table_value_cells: 2
+  suggestion: 请确认干燥温度处于 60-90℃ 且单位为 ℃。
+  source:
+    document_id: QJ-SPEC-001
+    version: V1.0
+    clause: '8.3'
+    authority: mandatory
+- id: UNIT-001
+  name: 数值与单位间空格检查
+  type: unit_format
+  severity: warning
+  unit_policy_path: config/unit_policy.yaml
+  suggestion: 按统一单位策略规范数值与单位的排版。
+  source:
+    document_id: QJ-SPEC-001
+    version: V1.0
+    clause: '5.3'
+    authority: mandatory
+- id: STYLE-001
+  name: 一级标题样式检查
+  type: heading_style
+  level: 1
+  style_name: Heading 1
+  font_name: 黑体
+  font_size: 16
+  bold: true
+  severity: error
+  suggestion: 一级标题应使用 Heading 1 样式，并符合黑体、16pt、加粗要求。
+  source:
+    document_id: QJ-SPEC-001
+    version: V1.0
+    clause: '5.1'
+    authority: mandatory
+- id: STYLE-002
+  name: 正文样式检查
+  type: paragraph_style
+  exclude_headings: true
+  style_names:
+  - Normal
+  - 正文
+  font_name: 宋体
+  font_size: 9.5
+  bold: false
+  italic: false
+  severity: error
+  suggestion: 正文应使用宋体、9.5pt、不加粗、不斜体。
+  source:
+    document_id: QJ-SPEC-001
+    version: V1.0
+    clause: '5.1'
+    authority: mandatory
+- id: TABLE-001
+  name: 工艺参数表必填列检查
+  type: required_table_column
+  table_keyword: 参数名称
+  header_row_index: 0
+  required_columns:
+  - 参数名称
+  - 标准值
+  - 单位
+  - 允许范围
+  severity: error
+  required_table: true
+  suggestion: 工艺参数表必须包含参数名称、标准值、单位和允许范围。

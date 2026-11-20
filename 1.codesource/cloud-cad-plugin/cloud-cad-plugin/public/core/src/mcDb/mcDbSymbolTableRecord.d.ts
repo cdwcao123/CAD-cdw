@@ -1,0 +1,37 @@
+import { McMcdFiler } from '../mc/mcLoaders/mcMcdFiler';
+import { McMctfFiler } from '../mc/mcLoaders/mcMctfFiler';
+import { McReturnStatus } from '../mc/mcReturnStatus';
+import { McDbObject } from './mcDbObject';
+import { McDbSymbolTable } from './mcDbSymbolTable';
+import { IRecordRef } from './types/interface';
+import { McDbObjectId } from './types/type';
+export type McDbRefRecordMap = Map<McDbObjectId, IRecordRef>;
+export declare abstract class McDbSymbolTableRecord extends McDbObject {
+    #private;
+    protected abstract readonly _type: string;
+    protected static readonly _className: string;
+    table: McDbSymbolTable<McDbSymbolTableRecord> | null;
+    protected name: string;
+    protected _isResolved: boolean;
+    protected _isReNameable: boolean;
+    protected refMap: McDbRefRecordMap;
+    constructor(name?: string, reNameable?: boolean);
+    assertEditable(): boolean;
+    getName(): string;
+    _addRefRecord(ref: IRecordRef): void;
+    _removeRefRecord(objectId: McDbObjectId): void;
+    updateRefEntity(changedOld: Record<string, any>, changedNew: Record<string, any>): Promise<void>;
+    setName(value: string): McReturnStatus<string>;
+    isDependent(): boolean;
+    isResolved(): boolean;
+    isReNamable(): boolean;
+    mctfInFields(fields: McMctfFiler): Promise<void>;
+    mctfOutFields(fields: McMctfFiler): void;
+    mcdInFields(fields: McMcdFiler): Promise<void>;
+    mcdOutFields(fields: McMcdFiler): void;
+    update(): Promise<McReturnStatus<string>>;
+    _updateForRedoOrUndo(changedOld: Record<string, any>, changedNew: Record<string, any>): McReturnStatus<string> | undefined;
+    _clearProxy(): void;
+    erase(): McReturnStatus<string>;
+    _getRefMap(): McDbRefRecordMap;
+}

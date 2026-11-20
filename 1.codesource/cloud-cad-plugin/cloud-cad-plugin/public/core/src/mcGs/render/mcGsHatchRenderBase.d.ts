@@ -1,0 +1,50 @@
+import { default as McColor } from '../../mc/mcColor';
+import { McEngine } from '../../mcCore';
+import { IHatchLoop, McDbHatch, HatchStyle } from '../../mcDb';
+import { McGeVector2, McGeVector3 } from '../../mcGe';
+import { McGsRendererBase } from '..';
+import * as THREE from '../../../lib/ThreeJS/Three.js';
+export interface BoundaryNode {
+    polygon: McGeVector2[];
+    depth: number;
+    children: BoundaryNode[];
+    parent: BoundaryNode | null;
+    area: number;
+    box: THREE.Box2;
+}
+export declare class McGsHatchRenderBase extends McGsRendererBase {
+    private boundaries;
+    elevation: number;
+    area: number;
+    constructor(entity: McDbHatch, engine: McEngine);
+    protected getBoundariesFromEntity(): McGeVector2[][];
+    protected getLoopCoords(loop: IHatchLoop): McGeVector2[];
+    private calcBoundingBox;
+    protected buildHierarchy(polygons: McGeVector2[][]): void;
+    private buildTreeHierarchy;
+    protected calculatePolygonArea(polygon: McGeVector2[]): number;
+    private calculateDepths;
+    protected getBoundaryHierarchy(): BoundaryNode[];
+    getPointDepth(point: McGeVector2): number;
+    isPointInFillArea(point: McGeVector2, style: HatchStyle): boolean;
+    getSegment3dsByHatchObject(): [McGeVector3, McGeVector3][];
+    private generatePatternSegments;
+    private generateLineSegments;
+    private findIntersectionsWithHierarchy;
+    private findIntersectionsWithPolygon;
+    private isEntryPoint;
+    private calculateLineParameter;
+    private sortIntersectionsAlongLine;
+    private createSegmentsNormalStyle;
+    private createSegmentsOuterStyle;
+    private isOuterLayerTransition;
+    private createSegmentsIgnoreStyle;
+    private getSegmentsByParity;
+    private filterOuterLayerIntersections;
+    private createSegmentsFromIntersections;
+    private applyDashPattern;
+    private buildDepthSequence;
+    private addSegment;
+    private isValidSegment;
+    protected renderByGradientColor(boundaryNode: BoundaryNode[], color?: McColor): boolean;
+}

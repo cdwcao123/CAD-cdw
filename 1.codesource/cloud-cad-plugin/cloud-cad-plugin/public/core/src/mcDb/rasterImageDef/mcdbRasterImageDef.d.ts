@@ -1,0 +1,35 @@
+import { McMcdFiler } from '../../mc/mcLoaders/mcMcdFiler';
+import { McMctfFiler } from '../../mc/mcLoaders/mcMctfFiler';
+import { McDbDictionaryRecord } from '../mcDbDictionaryRecord';
+import { ResolutionUnit } from '../types/enum';
+export declare class McDbRasterImageDef extends McDbDictionaryRecord {
+    #private;
+    readonly _type: string;
+    static readonly _className: string;
+    constructor();
+    constructor(fileData: ArrayBuffer, fileType: string);
+    constructor(fileData: ArrayBuffer, fileType: string, filePath: string, width: number, height: number, horizontalResolution: number, verticalResolution: number, unit: ResolutionUnit);
+    static getMimeTypeFromExtension(extension: string): string;
+    static getExtensionFromMimeType(mimeType: string): string;
+    getFilePath(): string;
+    setFilePath(filePath: string): void;
+    getFileType(): string;
+    setFileType(fileType: string): void;
+    getFileSize(): number;
+    getFileData(): ArrayBuffer;
+    setFileData(fileData: ArrayBuffer): void;
+    getWidth(): number;
+    setWidth(width: number): void;
+    getHeight(): number;
+    setHeight(height: number): void;
+    getHorizontalResolution(): number;
+    setHorizontalResolution(horizontalResolution: number): void;
+    getVerticalResolution(): number;
+    setVerticalResolution(verticalResolution: number): void;
+    getUnit(): ResolutionUnit;
+    setUnit(unit: ResolutionUnit): void;
+    mctfInFields(fields: McMctfFiler): Promise<void>;
+    mctfOutFields(fields: McMctfFiler): void;
+    mcdInFields(fields: McMcdFiler): Promise<void>;
+    mcdOutFields(fields: McMcdFiler): void;
+}

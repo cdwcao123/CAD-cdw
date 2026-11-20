@@ -1,0 +1,52 @@
+import { McColor } from '..';
+import { McDbVertex, McDbVertex2d } from '../../mcDb';
+import { McGeMatrix4, McGePoint, McGePoint2, McGeVector2, McGeVector3 } from '../../mcGe';
+export declare class McMctfFiler {
+    private readonly map;
+    constructor(initialData?: Record<string, any> | Map<string, any>);
+    get(key: string): any;
+    getDeep(key: string): any;
+    set(key: string, value: any): this;
+    setDeep(key: string, value: any): this;
+    toJson(): Record<string, any>;
+    getMap(): Map<string, any>;
+    static fromJson(obj: Record<string, any>): McMctfFiler;
+    static fromMap(map: Map<string, any>): McMctfFiler;
+    has(key: string): boolean;
+    delete(key: string): boolean;
+    clear(): void;
+    get size(): number;
+    [Symbol.iterator](): IterableIterator<[string, any]>;
+    entries(): IterableIterator<[string, any]>;
+    keys(): IterableIterator<string>;
+    values(): IterableIterator<any>;
+    forEach(callback: (value: any, key: string, map: this) => void, thisArg?: any): void;
+    setColor(key: string, cl: McColor): void;
+    getColor(key: string): McColor | null;
+    setVector(key: string, sourcePt: McGeVector3 | McGeVector2 | McGePoint): void;
+    getVector(key: string): McGeVector3 | null;
+    getVector2d(key: string): McGeVector2 | null;
+    setVector2d(key: string, sourcePt: McGeVector2): void;
+    getPoint2(key: string): McGePoint2 | null;
+    setPoint2(key: string, sourcePt: McGePoint2): void;
+    getPoint3(key: string): McGePoint | null;
+    setPoint3(key: string, sourcePt: McGePoint): void;
+    setVector2ds(key: string, sourcePts: McGeVector2[]): void;
+    setVectors(key: string, sourcePts: McGeVector3[] | McGePoint[]): void;
+    getVectors(key: string, targetPts: McGeVector3[]): boolean;
+    getPoints(key: string, targetPts: McGePoint[]): boolean;
+    setVectors2d(key: string, sourcePts: McGeVector2[] | McGePoint2[]): void;
+    getVectors2d(key: string, targetPts: McGeVector2[]): boolean;
+    getPoints2(key: string, targetPts: McGePoint2[]): boolean;
+    setVertexes(key: string, sourceVertexes: McDbVertex[]): void;
+    getVertexes(key: string, targetVertexes: McDbVertex[]): boolean;
+    setVertexes2d(key: string, sourceVertexes: McDbVertex2d[]): void;
+    getVertexes2d(key: string, targetVertexes: McDbVertex2d[]): boolean;
+    setMatrix4(key: string, sourceMatrix: McGeMatrix4): void;
+    getMatrix4(key: string): McGeMatrix4 | null;
+    setArrayBuffer(key: string, buffer: ArrayBuffer): void;
+    getArrayBuffer(key: string): ArrayBuffer | null;
+    clone(): McMctfFiler;
+}
+export declare class McXData extends McMctfFiler {
+}

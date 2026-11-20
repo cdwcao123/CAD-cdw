@@ -1,0 +1,30 @@
+import { McMcdFiler, McMctfFiler } from '../../mc';
+import { McEngine2D, McEngine3D } from '../../mcCore';
+import { McGeVector3 } from '../../mcGe';
+import { McDbEntity } from './mcDbEntity';
+export declare abstract class McDbCurve extends McDbEntity {
+    protected readonly _type: string;
+    protected static readonly _className: string;
+    protected isClose: boolean;
+    readonly isCurve: boolean;
+    constructor();
+    abstract worldDraw2d(engine: McEngine2D): void;
+    abstract worldDraw3d(engine: McEngine3D): void;
+    abstract getStartPoint(): McGeVector3 | null;
+    abstract getEndPoint(): McGeVector3 | null;
+    getCurvePath(): McGeVector3[];
+    abstract isClosed(): boolean;
+    abstract isPeriodic(): boolean;
+    abstract isPlanar(): boolean;
+    abstract getPointAtDist(dist: number): McGeVector3 | null;
+    abstract getPointAtParam(param: number): McGeVector3 | null;
+    abstract getParamAtPoint(pt: McGeVector3): number;
+    abstract getDistAtParam(param: number): number;
+    abstract getClosestPointTo(pt: McGeVector3, extend: boolean): McGeVector3 | null;
+    abstract reverse(): void;
+    abstract isOn(pt: McGeVector3): boolean;
+    mctfInFields(fields: McMctfFiler): void;
+    mctfOutFields(fields: McMctfFiler): void;
+    mcdInFields(filer: McMcdFiler): void;
+    mcdOutFields(filer: McMcdFiler): void;
+}

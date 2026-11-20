@@ -1,0 +1,32 @@
+import { McUiSelectionSnapshot } from '../type/interface';
+import { McCore, McDbObject } from 'McCore';
+export declare class McUiSelectionContext {
+    readonly coreKey: string;
+    readonly core: McCore;
+    private rawEntities;
+    private entities;
+    private entityIds;
+    private typeEntityIds;
+    private typeCounts;
+    private commonValues;
+    private firstEntityType;
+    private selectionVersion;
+    private contentVersion;
+    private entityTable;
+    private contentInvalidationScheduled;
+    private contentBatchDepth;
+    private contentDirty;
+    private disposed;
+    private readonly onContentChanged;
+    constructor(coreKey: string, core: McCore, onContentChanged: (coreKey: string) => void);
+    replaceSelection(entities: ReadonlyMap<string, McDbObject>): void;
+    getSnapshot(): McUiSelectionSnapshot;
+    hasEntity(entityId: string): boolean;
+    beginContentBatch(): void;
+    endContentBatch(): void;
+    dispose(): void;
+    private bindEntityTable;
+    private collectCommonValue;
+    private readonly handleEntityModified;
+    private scheduleContentInvalidation;
+}

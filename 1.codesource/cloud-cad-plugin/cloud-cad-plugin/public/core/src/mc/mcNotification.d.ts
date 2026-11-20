@@ -1,0 +1,35 @@
+import { NotificationDecisionConfig, NotificationDecisionResult } from './types/interface';
+declare class McNotification {
+    private container;
+    private mask?;
+    private promise;
+    private resolve;
+    private config;
+    private isDecision;
+    private checkbox?;
+    private readonly sysValChangedHandler;
+    private readonly keydownHandler;
+    constructor(config: NotificationDecisionConfig, isDecision?: boolean);
+    private onSysValChanged;
+    private injectStyles;
+    private getOrCreateContainer;
+    private appendLegacyFooter;
+    private appendDecisionFooter;
+    private createDecisionButton;
+    private createSvgIcon;
+    private createCloseIcon;
+    private onKeydown;
+    private finish;
+    close(): void;
+    cancel(): Promise<void>;
+    confirm(): Promise<void>;
+    reject(): Promise<void>;
+    private destroy;
+    static success(message: string, title?: string): Promise<boolean>;
+    static error(message: string, title?: string): Promise<boolean>;
+    static warning(message: string, title?: string): Promise<boolean>;
+    static info(message: string, title?: string): Promise<boolean>;
+    static message(message: string, title?: string): Promise<void>;
+    static decision(config: NotificationDecisionConfig): Promise<NotificationDecisionResult>;
+}
+export { McNotification };

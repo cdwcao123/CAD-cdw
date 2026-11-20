@@ -1,0 +1,36 @@
+import { McGeRaycaster } from '../../mcGe/mcGeRaycaster';
+import { McEngine } from '../../mcCore/mcView/mcEngine';
+import { McGePlaneVolume } from '../../mcGe/mcGePlaneVolume';
+import { GsAnglePanelOption } from '../types/interface';
+import * as THREE from '../../../lib/ThreeJS/Three.js';
+export declare class McGsAnglePanel extends THREE.LineSegments {
+    readonly isGsObject: boolean;
+    protected show: boolean;
+    protected canPick: boolean;
+    protected angleSpace: number;
+    protected radius: number;
+    protected color: THREE.Color;
+    protected highLightColor: THREE.Color;
+    protected length: number;
+    protected engine: McEngine;
+    constructor(engine: McEngine, option?: GsAnglePanelOption);
+    buildGeometry(): THREE.BufferGeometry;
+    buildMaterial(): THREE.Material;
+    raycast(raycaster: McGeRaycaster, intersects: THREE.Intersection[]): void;
+    raycastVolume(planeVolume: McGePlaneVolume, isWrap?: boolean): boolean;
+    resetSize(w: number, h: number): void;
+    getShow(): boolean;
+    setShow(show: boolean): void;
+    getAngleSpace(): number;
+    setAngleSpace(angleSpace: number): void;
+    getRadius(): number;
+    setRadius(radius: number): void;
+    getLength(): number;
+    setLength(length: number): void;
+    getColor(): THREE.Color;
+    setColor(color: THREE.Color): void;
+    getHighLightColor(): THREE.Color;
+    setHighLightColor(highLightColor: THREE.Color): void;
+    getPosition(): THREE.Vector3;
+    setPosition(position: THREE.Vector3): void;
+}

@@ -1,0 +1,36 @@
+import { McGeBitFlag, McGeExtent2, McGeExtent3, McGeMatrix4, McGeObject, McGeObject2d, McGeObjectList, McGePoint3d, McGeVector2, McGeVector3, McGeIntersectType } from '.';
+export declare class McGePoint2d extends McGeObject2d {
+    x: number;
+    y: number;
+    z: number;
+    protected readonly _type: string;
+    protected static readonly _className: string;
+    constructor(x?: number | McGePoint2d | McGePoint3d | McGeVector2 | McGeVector3, y?: number, z?: number);
+    set(x?: number, y?: number, z?: number): void;
+    copy(other: McGePoint2d | McGePoint3d): void;
+    add(vt: McGePoint2d): McGePoint2d;
+    sub(vt: McGePoint2d): McGePoint2d;
+    toMcGeVector2d(): McGeVector2;
+    toMcGeVector3d(z?: number): McGeVector3;
+    convert3D(): McGePoint3d | null;
+    convert2D(): McGePoint2d | null;
+    fromVector2d(vet: McGeVector2): void;
+    fromVector3d(vet: McGeVector3): void;
+    isPoint(): boolean;
+    isValid(): boolean;
+    setElevation(elev: number): boolean;
+    transformBy(pMatrix: McGeMatrix4): void;
+    getClosestPoint(pt: McGeVector3, bExtend: boolean): McGeVector3 | null;
+    getClosestPointInVec(pt: McGeVector3, bExtend: boolean, vtDir: McGeVector3): McGeVector3 | null;
+    clone(): McGePoint2d;
+    getElevation(): number;
+    isEqual(other: McGePoint2d | McGePoint3d): boolean;
+    midPoint(ptTo: McGePoint2d | McGePoint3d): McGePoint2d | McGePoint3d;
+    isInclude(obj: McGeObject): boolean;
+    getExtend2D(res: McGeExtent2): boolean;
+    getExtend3D(res: McGeExtent3): boolean;
+    intersectWith(obj: McGeObject, res: McGeObjectList, nExt?: McGeIntersectType): boolean;
+    getSamplePoint(): McGeVector3;
+    hitTest(pt: McGeVector3): McGeBitFlag;
+    distanceTo(pt: McGePoint2d | McGePoint3d): number;
+}

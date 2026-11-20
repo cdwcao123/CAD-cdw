@@ -1,0 +1,18 @@
+import { RuntimeClassRegInfo, tempLateInfo } from '..';
+import { McCore } from '../../mcCore';
+import { IMcCommand } from '../../mcCore/types/interface';
+import { McReturnStatus } from '../mcReturnStatus';
+import { EntityRegInfo } from './interface';
+export declare function mcPrintf(info: string): void;
+export declare function addCommand(cmd: IMcCommand): McReturnStatus<string>;
+export declare function removeCommand(name: string): McReturnStatus<string>;
+export declare function removeGroup(group: string): boolean;
+export declare function getCommands(): Map<string, IMcCommand>;
+export declare function execCommand(cmdName: string, ...args: any[]): Promise<McReturnStatus<string>>;
+export declare function execCommandFn(cmdName: string, core: McCore, keepHighlight?: boolean, ...args: any[]): Promise<any>;
+export declare function execTempCommand(cmdName: string, core: McCore, keepHighlight?: boolean, ...args: any[]): Promise<boolean>;
+export declare function registerEntityClass(entityRegInfo: EntityRegInfo): void;
+export declare function regRuntimeClass(runTimeClassRegInfo: RuntimeClassRegInfo): void;
+export declare function withAutoCatch(preCheckMethod: string): (target: any, propertyKey: string, descriptor: PropertyDescriptor) => void;
+export declare function readyToModify(): (target: any, propertyKey: string, descriptor: PropertyDescriptor) => void;
+export declare function initTemplates(): Promise<tempLateInfo[]>;

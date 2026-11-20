@@ -1,0 +1,787 @@
+[
+  {
+    "name": "@extfont2.shx",
+    "file": "@extfont2.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "aaa.shx",
+    "file": "Aaa.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "acaderef.shx",
+    "file": "AcadEref.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "aehalf.shx",
+    "file": "aehalf.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "amdtsymbols.shx",
+    "file": "AMDTSymbols.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "amgdt.shx",
+    "file": "amgdt.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "amgdtans.shx",
+    "file": "amgdtans.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "bigfont.shx",
+    "file": "bigfont.shx",
+    "type": "shx",
+    "bigFont": true,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "bold.shx",
+    "file": "bold.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "cdm.shx",
+    "file": "Cdm.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "cdm_nc.shx",
+    "file": "CDM_NC.SHX",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "complex.shx",
+    "file": "complex.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "dim.shx",
+    "file": "dim.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "extfont.shx",
+    "file": "extfont.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "extfont2.shx",
+    "file": "extfont2.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "exthalf2.shx",
+    "file": "exthalf2.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "extslim2.shx",
+    "file": "extslim2.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "FangZhengFangSongJianTi",
+    "file": "FangZhengFangSongJianTi.ttf",
+    "type": "ttf",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "fs.shx",
+    "file": "Fs.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "g12f13.shx",
+    "file": "g12f13.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "g13f12d.shx",
+    "file": "g13f12d.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "g13f12w.shx",
+    "file": "g13f12w.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "gbcbig.shx",
+    "file": "gbcbig.shx",
+    "type": "shx",
+    "bigFont": true,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "gbeitc.shx",
+    "file": "gbeitc.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "gbenor.shx",
+    "file": "gbenor.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "gdt.shx",
+    "file": "gdt.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "geniso.shx",
+    "file": "GENISO.SHX",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "geniso12.shx",
+    "file": "geniso12.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "genltshp",
+    "file": "GENLTSHP.SHX",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "genprese.shx",
+    "file": "GENPRESE.SHX",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "gothice.shx",
+    "file": "gothice.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "gothicg.shx",
+    "file": "gothicg.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "gothici.shx",
+    "file": "gothici.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "greekc.shx",
+    "file": "greekc.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "greeks.shx",
+    "file": "greeks.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "gs_hztxt.shx",
+    "file": "GS_hztxt.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "gs_txt.shx",
+    "file": "GS_TXT.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "hand1.shx",
+    "file": "hand1.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "ht.shx",
+    "file": "HT.SHX",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "hztxt.shx",
+    "file": "hztxt.shx",
+    "type": "shx",
+    "bigFont": true,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "hztxt2.shx",
+    "file": "hztxt2.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "iges1001.shx",
+    "file": "iges1001.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "iges1002.shx",
+    "file": "iges1002.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "iges1003.shx",
+    "file": "iges1003.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "intecad.shx",
+    "file": "intecad.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "iso.shx",
+    "file": "ISO.SHX",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "isocpeur.ttf",
+    "file": "isocpeur.ttf",
+    "type": "ttf",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "isocp.shx",
+    "file": "isocp.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "isocp2.shx",
+    "file": "isocp2.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "isocp3.shx",
+    "file": "isocp3.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "isoct.shx",
+    "file": "isoct.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "isoct2.shx",
+    "file": "isoct2.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "isoct3.shx",
+    "file": "isoct3.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "italic.shx",
+    "file": "italic.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "italic8.shx",
+    "file": "ITALIC8.SHX",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "italicc.shx",
+    "file": "italicc.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "italict.shx",
+    "file": "italict.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "khz.shx",
+    "file": "Khz.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "mononoki",
+    "file": "mononoki-Regular.woff",
+    "type": "woff",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "monotxt.shx",
+    "file": "monotxt.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "monotxt8.shx",
+    "file": "MONOTXT8.SHX",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "rd.shx",
+    "file": "Rd.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "romanc.shx",
+    "file": "romanc.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "romand.shx",
+    "file": "romand.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "romans.shx",
+    "file": "romans.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "romant.shx",
+    "file": "romant.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "rs.shx",
+    "file": "Rs.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "scriptc.shx",
+    "file": "scriptc.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "scripts.shx",
+    "file": "scripts.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "simhei",
+    "file": "simhei.ttf",
+    "type": "ttf",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "simkai",
+    "file": "simkai.ttf",
+    "type": "ttf",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "simsun",
+    "file": "simsun.ttf",
+    "type": "ttf",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "simfang",
+    "file": "simfang.ttf",
+    "type": "ttf",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  
+  {
+    "name": "simplex.shx",
+    "file": "simplex.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "simplex8.shx",
+    "file": "SIMPLEX8.SHX",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "spec_bar.shx",
+    "file": "spec_bar.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "spec_sl.shx",
+    "file": "spec_sl.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "special.shx",
+    "file": "special.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "syastro.shx",
+    "file": "syastro.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "symap.shx",
+    "file": "symap.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "symath.shx",
+    "file": "symath.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "symeteo.shx",
+    "file": "symeteo.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "symusic.shx",
+    "file": "symusic.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "times.shx",
+    "file": "times.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "timesout.shx",
+    "file": "timesout.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "tssdeng.shx",
+    "file": "tssdeng.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "txt.shx",
+    "file": "txt.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "whgdtxt.shx",
+    "file": "whgdtxt.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "whgtxt.shx",
+    "file": "whgtxt.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "whtgtxt.shx",
+    "file": "whtgtxt.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "whtmtxt.shx",
+    "file": "whtmtxt.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "wlc-c.shx",
+    "file": "wlc-c.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "wlc-e1.shx",
+    "file": "wlc-e1.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "wlc-e2.shx",
+    "file": "wlc-e2.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "仿宋.shx",
+    "file": "仿宋.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "仿宋_gb2312.shx",
+    "file": "仿宋_GB2312.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "工程汉字.shx",
+    "file": "工程汉字.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "寒鹰西文.shx",
+    "file": "寒鹰西文.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "寒鹰中文.shx",
+    "file": "寒鹰中文.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "结构1.shx",
+    "file": "结构1.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "楷体ttf.shx",
+    "file": "楷体TTF.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "楷体ttfbig.shx",
+    "file": "楷体TTFbig.shx",
+    "type": "shx",
+    "bigFont": true,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "方正书宋",
+    "file": "方正书宋.otf",
+    "type": "otf",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "宋体.shx",
+    "file": "宋体.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "宋体big.shx",
+    "file": "宋体big.shx",
+    "type": "shx",
+    "bigFont": true,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "宋体ttf.shx",
+    "file": "宋体TTf.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "宋体ttfbig.shx",
+    "file": "宋体TTfbig.shx",
+    "type": "shx",
+    "bigFont": true,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "西文.shx",
+    "file": "西文.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "斜体西文.shx",
+    "file": "斜体西文.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "正体西文.shx",
+    "file": "正体西文.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "中文.shx",
+    "file": "中文.shx",
+    "type": "shx",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  },
+  {
+    "name": "fangsong_gb2312.ttf",
+    "file": "fangsong_gb2312.ttf",
+    "type": "ttf",
+    "bigFont": false,
+    "fontSubfamily": "常规"
+  }
+]

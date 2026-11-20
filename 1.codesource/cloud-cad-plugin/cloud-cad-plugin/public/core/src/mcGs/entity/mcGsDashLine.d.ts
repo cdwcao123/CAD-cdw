@@ -1,0 +1,36 @@
+import { McGeRaycaster } from '../../mcGe/mcGeRaycaster';
+import { McEngine } from '../../mcCore/mcView/mcEngine';
+import { McGePlaneVolume } from '../../mcGe/mcGePlaneVolume';
+import { GsDashLineOption } from '../types/interface';
+import * as THREE from '../../../lib/ThreeJS/Three.js';
+export declare class McGsDashLine extends THREE.LineSegments {
+    readonly isGsObject: boolean;
+    protected show: boolean;
+    protected canPick: boolean;
+    protected space: number;
+    protected alpha: number;
+    protected color: THREE.Color;
+    protected coords: THREE.Vector3[];
+    protected length: number;
+    protected engine: McEngine;
+    constructor(engine: McEngine, coords: THREE.Vector3[], option?: GsDashLineOption);
+    buildGeometry(): THREE.BufferGeometry;
+    buildMaterial(): THREE.Material;
+    onBeforeRender(renderer: THREE.WebGLRenderer, scene: THREE.Scene, camera: THREE.Camera, geometry: THREE.BufferGeometry, material: THREE.Material, group: THREE.Group): void;
+    protected updateSpace(): number;
+    raycast(raycaster: McGeRaycaster, intersects: THREE.Intersection[]): void;
+    raycastVolume(planeVolume: McGePlaneVolume, isWrap?: boolean): boolean;
+    resetSize(w: number, h: number): void;
+    getEngine(): McEngine;
+    setCanPick(canPick: boolean): void;
+    getShow(): boolean;
+    setShow(show: boolean): void;
+    getSpace(): number;
+    setSpace(space: number): void;
+    getAlpha(): number;
+    setAlpha(alpha: number): void;
+    getColor(): THREE.Color;
+    setColor(color: THREE.Color): void;
+    getCoords(): THREE.Vector3[];
+    setCoords(coords: THREE.Vector3[]): void;
+}

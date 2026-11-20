@@ -1,0 +1,13 @@
+import { McCore } from 'McCore';
+import { OpenTextStyleManagerOptions } from '../../../../../mcUiCommon/mcUiTextStyleManager/types/interface';
+declare const openTextStyleManager: (commandCore?: McCore, options?: OpenTextStyleManagerOptions) => Promise<void>;
+declare const openAnnotationStyleManager: () => Promise<void>;
+declare const openLineTypeManager: () => Promise<void>;
+declare const openFontManager: () => Promise<void>;
+declare const updateFont: (isEdit?: boolean) => Promise<void>;
+declare const deleteFont: () => void;
+declare const openMultipleLeadStylesManager: () => Promise<void>;
+declare const openInsertTableDialog: () => Promise<void>;
+declare const openTableStylesManager: () => Promise<void>;
+declare const openMultipleLineStylesManager: () => Promise<void>;
+export { openAnnotationStyleManager, openLineTypeManager, openTextStyleManager, openFontManager, updateFont, deleteFont, openMultipleLeadStylesManager, openInsertTableDialog, openTableStylesManager, openMultipleLineStylesManager, };

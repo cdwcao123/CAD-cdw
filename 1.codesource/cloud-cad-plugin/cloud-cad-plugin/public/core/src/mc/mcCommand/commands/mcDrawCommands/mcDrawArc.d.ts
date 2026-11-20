@@ -1,0 +1,14 @@
+import { McCore } from '../../../../mcCore';
+export declare function drawArc(core: McCore): Promise<void>;
+export declare function drawArcBy3Points(core: McCore): Promise<void>;
+export declare function drawArcByStartCenterEnd(core: McCore): Promise<void>;
+export declare function drawArcByStartCenterAngle(core: McCore): Promise<void>;
+export declare function drawArcByStartCenterChordLength(core: McCore): Promise<void>;
+export declare function drawArcByStartEndAngle(core: McCore): Promise<void>;
+export declare function drawArcByStartEndDirection(core: McCore): Promise<void>;
+export declare function drawArcByStartEndRadius(core: McCore): Promise<void>;
+export declare function drawArcByCenterStartEnd(core: McCore): Promise<void>;
+export declare function drawArcByCenterStartChordLength(core: McCore): Promise<void>;
+export declare function drawArcByContinue(core: McCore): Promise<void>;
+export declare function drawLineWithLineType(core?: McCore, name?: string): Promise<void>;
+export declare function setLayerIsOff(core: McCore, name: string, isOff: boolean): Promise<void>;

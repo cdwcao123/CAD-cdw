@@ -1,0 +1,35 @@
+import { ComputedRef, Ref } from 'vue';
+import { viewDisplayType } from '../mcUiMain/types/enum';
+import { DialogConfig } from './type/interface';
+import { DialogPosition } from './type/type';
+export declare class McUiDialogManager {
+    private static instance;
+    private baseZIndex;
+    private readonly nextElementZIndex;
+    private readonly pendingCloseIds;
+    private viewDisplayTypeHandler;
+    readonly dialogList: Ref<DialogConfig[]>;
+    readonly activeDialogs: ComputedRef<DialogConfig[]>;
+    private constructor();
+    static getInstance(): McUiDialogManager;
+    private readonly getHighestZIndex;
+    private readonly getNextZIndex;
+    private readonly syncViewDisplayType;
+    readonly bindViewDisplayTypeHandler: (handler: ((type: viewDisplayType) => void) | null) => void;
+    private readonly applyDialogTypeRules;
+    readonly openDialog: (config: DialogConfig) => Promise<string>;
+    private readonly removeDialog;
+    readonly closeDialog: (id: string) => Promise<boolean>;
+    readonly closeAllDialogs: () => Promise<void>;
+    readonly updateDialog: (id: string, config: Partial<DialogConfig>) => void;
+    readonly minimizeDialog: (id: string, restorePosition?: DialogPosition) => void;
+    readonly restoreDialog: (id: string) => void;
+    readonly toggleDialogMinimized: (id: string, restorePosition?: DialogPosition) => void;
+    readonly maximizeDialog: (id: string) => void;
+    readonly restoreMaximizedDialog: (id: string) => void;
+    readonly toggleDialogMaximized: (id: string) => void;
+    readonly getDialog: (id: string) => DialogConfig | undefined;
+    readonly bringToFront: (id: string) => void;
+    readonly clear: () => void;
+}
+export declare const mcUiDialogManager: McUiDialogManager;

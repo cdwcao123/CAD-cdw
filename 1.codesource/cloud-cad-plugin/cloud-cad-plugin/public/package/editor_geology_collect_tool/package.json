@@ -1,0 +1,13 @@
+{
+  "name": "@mas/plugin-editor-geology-collect-tool",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.js"
+    }
+  }
+}

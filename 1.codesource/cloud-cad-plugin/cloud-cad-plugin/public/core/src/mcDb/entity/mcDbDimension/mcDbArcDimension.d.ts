@@ -1,0 +1,38 @@
+import { McMctfFiler, McMcdFiler } from '../../../mc';
+import { McReturnStatus } from '../../../mc/mcReturnStatus';
+import { McDbObjectId, MCEntitySnapPoints, MCEntityStretchPoints, McDbDimStyle, McDbDatabase } from '../..';
+import { McGeMatrix4, McGeVector3 } from '../../../mcGe';
+import { McDbDimension } from './mcDbDimension';
+export declare class McDbArcDimension extends McDbDimension {
+    #private;
+    protected readonly _type: string;
+    protected static readonly _className: string;
+    constructor(centerPoint: McGeVector3, xLine1Point: McGeVector3, xLine2Point: McGeVector3, arcPoint: McGeVector3, text?: string, dimStyle?: McDbObjectId);
+    applyStyle(style: McDbDimStyle | undefined): void;
+    rebuildChildEntity(db: McDbDatabase, recursive?: boolean): void;
+    getXLine1Point(): McGeVector3;
+    setXLine1Point(value: McGeVector3): McReturnStatus<string>;
+    getXLine2Point(): McGeVector3;
+    setXLine2Point(value: McGeVector3): McReturnStatus<string>;
+    getCenterPoint(): McGeVector3;
+    setCenterPoint(value: McGeVector3): McReturnStatus<string>;
+    getArcPoint(): McGeVector3;
+    setArcPoint(value: McGeVector3): McReturnStatus<string>;
+    getDimArrow1Type(): string;
+    setDimArrow1Type(value: string): void;
+    getDimArrow2Type(): string;
+    setDimArrow2Type(value: string): void;
+    getDimArrowSize(): number;
+    setDimArrowSize(value: number): void;
+    getHalfPoint(): McReturnStatus<McGeVector3 | string>;
+    getStretchPoints(): MCEntityStretchPoints[];
+    setStretchPoints(indexPoints: MCEntityStretchPoints[]): void;
+    private calculateBorderLine;
+    getSnapPoints(is2D: boolean): MCEntitySnapPoints[];
+    createGrips(): void;
+    transformBy(matrix: McGeMatrix4): boolean;
+    mctfInFields(fields: McMctfFiler): void;
+    mctfOutFields(fields: McMctfFiler): void;
+    mcdInFields(filer: McMcdFiler): void;
+    mcdOutFields(filer: McMcdFiler): void;
+}

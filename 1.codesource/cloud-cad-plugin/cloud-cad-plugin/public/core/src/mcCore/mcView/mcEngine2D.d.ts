@@ -1,0 +1,31 @@
+import { McDbEntity, McDbObject, McDbEntityMask } from '../../mcDb';
+import { McGeExtent3, McGeVector2, McGeVector3 } from '../../mcGe';
+import { McGeRaycaster } from '../../mcGe/mcGeRaycaster';
+import { McCore } from '../mcCore';
+import { IMcEngine2DOption, PickResult } from '../types/interface';
+import { McEngine } from './mcEngine';
+import * as THREE from '../../../lib/ThreeJS/Three.js';
+export declare class McEngine2D extends McEngine {
+    protected engineOption: IMcEngine2DOption;
+    touchDbMove: number;
+    protected sysEventHandleMap: Map<string, (...args: any[]) => boolean>;
+    constructor(container: HTMLElement, core: McCore, engineOption?: Partial<IMcEngine2DOption>);
+    init(): boolean;
+    resize(): void;
+    listenDomEvent(): boolean;
+    protected updateMouseCoord(event: MouseEvent): void;
+    setViewPanelVisible(visible: boolean): void;
+    dispose(): void;
+    getBoundingBox(): McGeExtent3 | null;
+    getViewSize(): McGeVector2;
+    pick(x: number, y: number, layers?: McDbEntityMask, threshold?: number, altitude?: number): PickResult | null;
+    pickByVolume(coords: McGeVector3[], isWrap?: boolean, layers?: McDbEntityMask): McDbObject[];
+    pickVolumeScreen(coords: McGeVector2[], isWrap?: boolean, layers?: McDbEntityMask): McDbObject[];
+    getRaycaster(x: number, y: number): McGeRaycaster | null;
+    zoomToEntity(entity: McDbEntity): void;
+    addObject(object: THREE.Object3D): void;
+    removeObject(object: THREE.Object3D): boolean;
+    removeObjectByUuid(uuid: string): boolean;
+    clearObjects(): void;
+    getObject(uuid: string): THREE.Object3D | undefined;
+}

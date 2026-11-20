@@ -1,0 +1,31 @@
+import { McMcdFiler } from '../../../mc/mcLoaders/mcMcdFiler';
+import { McMctfFiler } from '../../../mc/mcLoaders/mcMctfFiler';
+import { McDbDatabase, McDbDimStyle, MCEntitySnapPoints, MCEntityStretchPoints } from '../..';
+import { McDbObjectId } from '../../types/type';
+import { McGeMatrix4, McGeVector3 } from '../../../mcGe';
+import { McDbDimension } from './mcDbDimension';
+export declare class McDbOrdinateDimension extends McDbDimension {
+    #private;
+    protected readonly _type: string;
+    protected static readonly _className: string;
+    constructor(useXAxis: boolean, definingPoint: McGeVector3, leaderEndPoint: McGeVector3, text?: string, style?: McDbObjectId);
+    applyStyle(style: McDbDimStyle | undefined): void;
+    rebuildChildEntity(db: McDbDatabase, recursive?: boolean): void;
+    getDefiningPoint(): McGeVector3;
+    setDefiningPoint(value: McGeVector3): void;
+    getLeaderEndPoint(): McGeVector3;
+    setLeaderEndPoint(value: McGeVector3): void;
+    getUseXAxis(): boolean;
+    setUseXAxis(bX: boolean): void;
+    getArrowSize(): number;
+    setArrowSize(value: number): void;
+    getStretchPoints(): MCEntityStretchPoints[];
+    setStretchPoints(indexPoints: MCEntityStretchPoints[]): void;
+    getSnapPoints(is2D: boolean): MCEntitySnapPoints[];
+    createGrips(): void;
+    transformBy(matrix: McGeMatrix4): boolean;
+    mctfInFields(fields: McMctfFiler): void;
+    mctfOutFields(fields: McMctfFiler): void;
+    mcdInFields(fields: McMcdFiler): void;
+    mcdOutFields(fields: McMcdFiler): void;
+}

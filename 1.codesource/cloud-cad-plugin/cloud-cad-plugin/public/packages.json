@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "packages": [
+    {
+      "name": "coreGeologyCollectTool",
+      "entry": "./package/core_geology_collect_tool/index.js"
+    },
+    {
+      "name": "cadSymbolDb",
+      "entry": "./package/cadSymbolDb/index.js"
+    },
+    {
+      "name": "editorGeologyCollectTool",
+      "entry": "./package/editor_geology_collect_tool/index.js"
+    }
+    
+  ]
+}

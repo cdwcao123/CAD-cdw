@@ -1,0 +1,38 @@
+import { LayersMask } from '../mcUtils/layersMask';
+import { McEngine } from '../mcCore/mcView/mcEngine';
+import { McGsMergeLine } from './merge/mcGsMergeLine';
+import { McGsMergeMesh } from './merge/mcGsMergeMesh';
+import { McGsRenderable } from './renderable/mcGsRenderable';
+import * as THREE from '../../lib/ThreeJS/Three.js';
+export declare class McGsRenderManager {
+    private mergeMeshes;
+    private needUpdateMergeMeshes;
+    private gsObjects;
+    private materialMap;
+    private engine;
+    private tileSize;
+    private renderOrderNum;
+    private pointCenterSize;
+    constructor(engine: McEngine);
+    init(): void;
+    getTileSize(): number;
+    getPointCenterSize(): number;
+    setPointCenterSize(size: number): void;
+    setPointSize(size: number): void;
+    setPointMode(mode: number): void;
+    protected isM(): void;
+    private vResult;
+    protected initMaterials(): void;
+    addObject(object: THREE.Object3D): void;
+    removeObject(object: THREE.Object3D): boolean;
+    removeObjectByUuid(uuid: string): boolean;
+    clearObjects(): void;
+    getObject(uuid: string): THREE.Object3D | undefined;
+    pickObject(x: number, y: number, layers?: LayersMask, threshold?: number): THREE.Object3D | null;
+    addRenderable(renderable: McGsRenderable): void;
+    removeRenderable(renderable: McGsRenderable): boolean;
+    clearRenderables(): void;
+    getMergeMesh(code: string): McGsMergeLine | McGsMergeMesh | undefined;
+    resetSize(w: number, h: number): void;
+    updateRenderables(): void;
+}

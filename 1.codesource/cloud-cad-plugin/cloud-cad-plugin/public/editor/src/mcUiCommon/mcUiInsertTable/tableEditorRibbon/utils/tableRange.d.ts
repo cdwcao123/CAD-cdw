@@ -1,0 +1,10 @@
+import { TableBorderPreset } from '../types/enum';
+import { TableBorderAvailability, TableCellEdgeTarget } from '../types/interface';
+import { TableCellCoordinate } from '../types/type';
+import { CellRange, McDbTable } from 'McCore';
+export declare const getTableRangeCells: (range: CellRange) => TableCellCoordinate[];
+export declare const getTableRangeRows: (range: CellRange) => number[];
+export declare const getTableRangeColumns: (range: CellRange) => number[];
+export declare const isSingleTableCellRange: (table: McDbTable, range: CellRange) => boolean;
+export declare const getTableBorderAvailability: (table: McDbTable, range: CellRange) => TableBorderAvailability;
+export declare const getTableBorderTargets: (range: CellRange, preset: TableBorderPreset, availability?: TableBorderAvailability) => TableCellEdgeTarget[];

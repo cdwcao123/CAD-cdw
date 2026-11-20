@@ -1,0 +1,511 @@
+{
+  "schemaVersion": 1,
+  "type": "material",
+  "id": "materials-gb",
+  "name": "GB 材料牌号库（内置）",
+  "version": "2026.11",
+  "standard": "GB/T 699-2015 等",
+  "grades": [
+    {
+      "code": "Q195",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "Q215",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "Q235",
+      "name": "碳素结构钢",
+      "standard": "GB/T 700-2006",
+      "status": "current"
+    },
+    {
+      "code": "Q255",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "Q275",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "Q345",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "Q390",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "Q420",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "Q460",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "08",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "10",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "15",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "20",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "25",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "30",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "35",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "40",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "45",
+      "name": "优质碳素结构钢",
+      "standard": "GB/T 699-2015",
+      "status": "current",
+      "legacyAliases": [
+        "45#"
+      ]
+    },
+    {
+      "code": "50",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "55",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "60",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "65",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "70",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "15Mn",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "20Mn",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "25Mn",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "30Mn",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "35Mn",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "40Mn",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "45Mn",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "50Mn",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "20Cr",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "30Cr",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "35Cr",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "40Cr",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "45Cr",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "50Cr",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "20CrMnTi",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "40CrNiMoA",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "35CrMo",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "42CrMo",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "65Mn",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "60Si2Mn",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "50CrVA",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "T7",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "T8",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "T10",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "T12",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "HT150",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "HT200",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "HT250",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "HT300",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "QT400-18",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "QT450-10",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "QT500-7",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "QT600-3",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "ZL101A",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "ZL104",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "ZL105",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "ZL114A",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "ZL201",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "ZL301",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "1Cr18Ni9",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "0Cr18Ni9",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "06Cr19Ni10",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "12Cr18Ni9",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "304",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "316",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "316L",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "H62",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "H68",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "T2",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "T3",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "TU1",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "QSn6.5-0.1",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "ZCuSn10P1",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "ZCuZn38",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "6061",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "7075",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "2A12",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "5A06",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "TA2",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    },
+    {
+      "code": "TC4",
+      "name": "",
+      "standard": "",
+      "status": "current"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+import { McGeVector } from './types/interface';
+import { McGeBitFlag, McGeObject, McGeObject3d, McGeObjectList, McGePoint3d, McGeVector3 } from './index';
+export declare abstract class McGeCurve3d extends McGeObject3d {
+    abstract getPtFromParam(pa: number, pt: McGePoint3d): boolean;
+    abstract getParamFromPt(pt: McGePoint3d): number;
+    abstract getDistFromPa(pa: number): number;
+    abstract getPaFromDist(dist: number): number;
+    abstract clone(): McGeCurve3d;
+    abstract getSubCurve(p0: number, p1: number): McGeCurve3d;
+    getPtFromDist(dist: number, pt: McGePoint3d): boolean;
+    getDistFromPt(pt: McGePoint3d): number;
+    getStartPoint(): McGePoint3d;
+    getEndPoint(): McGePoint3d;
+    length(): number;
+    isClosed(): boolean;
+    isPointOn(pt: McGePoint3d): boolean;
+    getMidPoint(pt: McGePoint3d): void;
+    isOverlap(curve: McGeCurve3d): boolean;
+    getSegDividePoints(arPts: McGePoint3d[], nNum: number): void;
+    abstract getTangent(pa: number, vet: McGeVector): void;
+    abstract getTangent(pa: McGePoint3d, vet: McGeVector): void;
+    abstract isFinite(bStart: boolean): boolean;
+    abstract isSelfCross(): boolean;
+    abstract reverse(): void;
+    getExtendCurve(): McGeCurve3d;
+    hitTest(pt: McGeVector3): McGeBitFlag;
+    cut(obj: McGeObject, left: McGeObjectList, right: McGeObjectList, mid: McGeObjectList): void;
+    isInclude(obj: McGeObject): boolean;
+    isConnect(seg: McGeCurve3d): boolean;
+    split(paList: number[], res: McGeObjectList): void;
+    calcCollinearitionSubCurve(curve: McGeCurve3d): McGeObject | null;
+    getSamplePoint(): McGeVector3;
+    isCurveSeg(): boolean;
+    isClosedOrCurveSeg(): boolean;
+    isInfinite(): boolean;
+}

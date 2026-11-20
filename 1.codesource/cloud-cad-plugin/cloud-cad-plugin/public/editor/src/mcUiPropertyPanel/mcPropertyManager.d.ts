@@ -1,0 +1,38 @@
+import { McCore, McDbEntity, McDbObject } from 'McCore';
+import { Ref } from 'vue';
+import { BasePropertyScript } from './basePropertyScript';
+import { MergePropertyResult } from './type/mcPropertyManager';
+import { McUiCommonSelectionValue, McUiSelectionSnapshot } from './type/interface';
+export declare class McUiPropertyManager {
+    #private;
+    readonly activeCoreKey: Readonly<Ref<string>>;
+    readonly selectionVersion: Readonly<Ref<number>>;
+    readonly contentVersion: Readonly<Ref<number>>;
+    constructor();
+    setActiveCore(coreKey: string, core?: McCore): void;
+    replaceSelection(coreKey: string, entities: ReadonlyMap<string, McDbObject>, core: McCore): void;
+    scheduleSelectionUpdate(coreKey: string, entities: ReadonlyMap<string, McDbObject>, core: McCore): void;
+    invalidatePropertyCache(coreOrKey?: McCore | string): void;
+    beginContentBatch(coreOrKey?: McCore | string): void;
+    endContentBatch(coreOrKey?: McCore | string): void;
+    removeCore(coreKey: string): void;
+    clearAllCores(): void;
+    dispose(): void;
+    setOnlyAttrKeys(keys: string[]): void;
+    setIndexScope(scope: string): void;
+    addEntityProperty(entityProperty: BasePropertyScript<McDbEntity>): void;
+    removeEntityProperty(type: string): void;
+    collectEntityProperty(entity: any): void;
+    getEntityByObjectId(objectId: string): any;
+    resetCollectedProperties(): void;
+    getEntityPropertyGroup(type?: string): MergePropertyResult | undefined;
+    getEntityPropertyByType(type: string): BasePropertyScript<McDbEntity> | undefined;
+    private extractCommonProperties;
+    private mergePropertyMaps;
+    private mergePropertyValues;
+    hasSelection(coreOrKey?: McCore | string): boolean;
+    getSelection(coreOrKey?: McCore | string): ReadonlyMap<string, any>;
+    getSelectionSnapshot(coreOrKey?: McCore | string): McUiSelectionSnapshot | null;
+    getCommonSelectionValue<T = unknown>(key: string, coreOrKey?: McCore | string): McUiCommonSelectionValue<T> | null;
+    getEntityTypes(): Map<string, BasePropertyScript<McDbEntity>>;
+}

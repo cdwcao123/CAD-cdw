@@ -1,0 +1,572 @@
+{
+  "schemaVersion": 1,
+  "id": "CN-MECH-2D",
+  "name": "二维图样标准化审查规则（V1）",
+  "version": "V1-2026-11-16",
+  "scope": "机械产品零件图、装配图、总图、外形图的标准化审查，覆盖图幅图框、标题栏、明细栏、件号、图线、字体、尺寸、公差配合、几何公差、表面结构、材料标注十一类要素",
+  "boundary": "只判规范性，不判技术方案正确性；结构强度、装配可行性、工艺性不在范围内。",
+  "thresholds": {
+    "frameToleranceMm": 1,
+    "scaleTolerancePct": 1,
+    "lineWidthToleranceMm": 0.1,
+    "textHeightSeries": [
+      1.8,
+      2.5,
+      3.5,
+      5,
+      7,
+      10,
+      14,
+      20
+    ],
+    "titleNameMinHeight": 5,
+    "techRequirementMinHeight": 3.5,
+    "leaderEndToleranceMm": 1.5
+  },
+  "rules": [
+    {
+      "id": "R01",
+      "name": "图框边距",
+      "elements": "图幅、图框、装订边",
+      "ruleClass": "A",
+      "severity": "一般",
+      "standard": "GB/T 14689-2008",
+      "machineCheckable": "能",
+      "logic": "量取图框外矩形四边至纸边距离。A2 留装订边时应为左 25 mm、上/下/右 5 mm；任一方向偏差 >1 mm 判不符合。加长幅面按加长后尺寸核算。",
+      "exceptions": [
+        "不留装订边的图样，周边统一为 10 mm",
+        "加长幅面按其加长后的短边、长边核算，按对应版式取基准值"
+      ],
+      "checkpoints": [
+        {
+          "id": "D01",
+          "defect": "左侧装订边 15 mm（应 25 mm）",
+          "severity": "一般"
+        }
+      ],
+      "checkType": "frameMargin",
+      "params": {
+        "bindingLeft": 25,
+        "bindingOthers": 5,
+        "noBinding": 10,
+        "a0a1BindingOthers": 10,
+        "toleranceMm": 1
+      }
+    },
+    {
+      "id": "R02",
+      "name": "标题栏字段完整性",
+      "elements": "标题栏、签署栏、版次、阶段标记、张次",
+      "ruleClass": "B",
+      "severity": "严重",
+      "standard": "GB/T 10609.1-2008",
+      "machineCheckable": "能（需 OCR；DXF 直读标题栏文字）",
+      "logic": "按字段清单核验「存在性＋非空值」：图样名称、代号、材料、比例、版次、张次（共 X 张 第 X 张）、阶段标记，及设计/审核/工艺/批准/标准化五类签署。栏目存在但无值判缺失。",
+      "exceptions": [
+        "借用件、通用件图样沿用原图标题栏格式",
+        "签署为电子签章时以签章域存在性与时间戳替代手写判读，输出仍为符合／不符合"
+      ],
+      "checkpoints": [
+        {
+          "id": "D02",
+          "defect": "标题栏缺版次栏",
+          "severity": "严重"
+        },
+        {
+          "id": "D03",
+          "defect": "标题栏缺「共 X 张 第 X 张」",
+          "severity": "一般"
+        },
+        {
+          "id": "D04",
+          "defect": "标准化签署栏空白",
+          "severity": "严重"
+        },
+        {
+          "id": "D05",
+          "defect": "阶段标记栏空白",
+          "severity": "严重"
+        }
+      ],
+      "checkType": "titleBlockFields",
+      "params": {
+        "required": [
+          "name",
+          "code",
+          "material",
+          "scale",
+          "version",
+          "sheetCount",
+          "stage"
+        ],
+        "signatures": [
+          "设计",
+          "审核",
+          "工艺",
+          "标准化",
+          "批准"
+        ],
+        "versionCheckpoint": "D02",
+        "sheetCountCheckpoint": "D03",
+        "standardSignCheckpoint": "D04",
+        "stageCheckpoint": "D05"
+      }
+    },
+    {
+      "id": "R03",
+      "name": "比例一致性",
+      "elements": "比例栏与图形实际尺寸",
+      "ruleClass": "A",
+      "severity": "关键",
+      "standard": "GB/T 14690-1993",
+      "machineCheckable": "能（需矢量化）",
+      "logic": "取任一已知标注值 L标 与其对应两图元实测距离 L图，算 R＝L标／L图；与标题栏比例值比对，偏差 >1% 判不符。局部放大图按自身比例单独判定，不参与全图核算。",
+      "exceptions": [
+        "示意图、系统图、原理图等「不按比例绘制」图样，标题栏注明时跳过",
+        "局部放大图单独取比例"
+      ],
+      "checkpoints": [
+        {
+          "id": "D07",
+          "defect": "标 1:2，实测为 1:1",
+          "severity": "关键"
+        }
+      ],
+      "checkType": "scaleConsistency",
+      "params": {
+        "tolerancePct": 1,
+        "checkpoint": "D07",
+        "skipKeywords": [
+          "不按比例",
+          "示意"
+        ]
+      }
+    },
+    {
+      "id": "R04",
+      "name": "明细栏与件号双向一致",
+      "elements": "明细栏、件号、指引线",
+      "ruleClass": "B",
+      "severity": "关键",
+      "standard": "GB/T 10609.1-2008、GB/T 4458.2-2003",
+      "machineCheckable": "能",
+      "logic": "① 集合一致：明细栏序号集 A 与图面件号集 B 须相等，B－A 非空判「无来源件号」，A－B 非空判「漏标件号」；② 唯一性：同一件号出现两次及以上判重复；③ 指引线须终止于轮廓内并画圆点，不得空端或穿越他件。",
+      "exceptions": [
+        "借用件在图面上以「借用」标记替代件号，标记可证明来源者不计入 A－B 差集",
+        "标准件采用公共指引线合并标注时，公共指引线按组计一次"
+      ],
+      "checkpoints": [
+        {
+          "id": "D09",
+          "defect": "件 4/5/6 在图面无件号",
+          "severity": "关键"
+        },
+        {
+          "id": "D10",
+          "defect": "件号 3 在主视图与剖视图重复标注",
+          "severity": "一般"
+        },
+        {
+          "id": "D11",
+          "defect": "件号 2 指引线空端、穿越轮廓",
+          "severity": "一般"
+        }
+      ],
+      "checkType": "bomBalloonConsistency",
+      "params": {
+        "missingCheckpoint": "D09",
+        "duplicateCheckpoint": "D10",
+        "leaderCheckpoint": "D11",
+        "requireDot": true
+      }
+    },
+    {
+      "id": "R05",
+      "name": "线型与线宽一致性",
+      "elements": "可见轮廓、不可见轮廓、轴线、剖面线",
+      "ruleClass": "A",
+      "severity": "关键",
+      "standard": "GB/T 4457.4-2002",
+      "machineCheckable": "能（DXF 直读）",
+      "logic": "按要素角色分组，同组线宽须全等，任一线宽偏离组内众数 >0.1 mm 判错；轴线与对称中心线线型必须为细点画线；粗实线与细实线线宽比应为 2:1。剖面线为细实线，不参与粗实线一致性判定。",
+      "exceptions": [
+        "剖面线、波浪线、双折线本身为细实线",
+        "不同图幅允许采用不同线宽组，按角色分组后组内比较，不跨组比较"
+      ],
+      "checkpoints": [
+        {
+          "id": "D12",
+          "defect": "底板可见轮廓用 0.25 细线",
+          "severity": "关键"
+        },
+        {
+          "id": "D13",
+          "defect": "左立柱轴线用细实线",
+          "severity": "严重"
+        }
+      ],
+      "checkType": "lineStyle",
+      "params": {
+        "widthToleranceMm": 0.1,
+        "contourCheckpoint": "D12",
+        "axisCheckpoint": "D13",
+        "requireCenterLinetype": true
+      }
+    },
+    {
+      "id": "R06",
+      "name": "字体与字高",
+      "elements": "全图文字、技术要求、尺寸数字",
+      "ruleClass": "A",
+      "severity": "一般",
+      "standard": "GB/T 14691-1993",
+      "machineCheckable": "能",
+      "logic": "全部文字字高须取自序列 {1.8, 2.5, 3.5, 5, 7, 10, 14, 20}；同一层级（标题栏字段名、技术要求正文、尺寸数字）字高须一致；图样名称 ≥5 号，技术要求正文 ≥3.5 号。",
+      "exceptions": [
+        "表格内文字、明细栏密排文字可小于 3.5 号",
+        "分数与上下标按比例缩小，表格类文字按其专用下限判定"
+      ],
+      "checkpoints": [
+        {
+          "id": "D06",
+          "defect": "图样名称字高 2.5（应 ≥5）",
+          "severity": "一般"
+        },
+        {
+          "id": "D14",
+          "defect": "技术要求正文 2.5 号",
+          "severity": "一般"
+        }
+      ],
+      "checkType": "textHeight",
+      "params": {
+        "series": [
+          1.8,
+          2.5,
+          3.5,
+          5,
+          7,
+          10,
+          14,
+          20
+        ],
+        "titleMinHeight": 5,
+        "techMinHeight": 3.5,
+        "titleCheckpoint": "D06",
+        "techCheckpoint": "D14"
+      }
+    },
+    {
+      "id": "R07",
+      "name": "尺寸标注三要素与符号",
+      "elements": "尺寸线、界线、数字、直径与半径符号",
+      "ruleClass": "A",
+      "severity": "关键",
+      "standard": "GB/T 4458.4-2003",
+      "machineCheckable": "能",
+      "logic": "每条尺寸须含尺寸线、两端尺寸界线、尺寸数字，缺失任一要素判错；圆与大于半圆的弧径必带 φ，球面加 Sφ，圆弧半径加 R；尺寸数字不得被图线穿越。",
+      "exceptions": [
+        "直径尺寸允许只在尺寸线一端画箭头",
+        "对称结构的对称尺寸允许省略一端尺寸界线",
+        "倒角、退刀槽可用简化注法，符合简化注法规定者不判缺要素"
+      ],
+      "checkpoints": [
+        {
+          "id": "D16",
+          "defect": "中心距「130」两端无尺寸界线",
+          "severity": "一般"
+        },
+        {
+          "id": "D17",
+          "defect": "立柱直径注为「40」，漏 φ",
+          "severity": "关键"
+        }
+      ],
+      "checkType": "dimensionElements",
+      "params": {
+        "requireExtLines": 2,
+        "extLineCheckpoint": "D16",
+        "diameterCheckpoint": "D17",
+        "requirePhi": true
+      }
+    },
+    {
+      "id": "R08",
+      "name": "尺寸数字方向",
+      "elements": "竖直尺寸、斜线区尺寸",
+      "ruleClass": "A",
+      "severity": "关键",
+      "standard": "GB/T 4458.4-2003",
+      "machineCheckable": "能",
+      "logic": "尺寸线竖直时，数字须旋转 90° 书写（字头朝左）；尺寸线处于 30° 斜线区内时须改为引出标注；数字水平书写而尺寸线竖直判错。角度数字一律水平书写，不适用本规则。",
+      "exceptions": [
+        "角度数字、引出标注的数字不适用",
+        "倾斜 30° 区内已改引出者不判错"
+      ],
+      "checkpoints": [
+        {
+          "id": "D15",
+          "defect": "竖直尺寸「100」数字水平书写",
+          "severity": "关键"
+        }
+      ],
+      "checkType": "dimensionDirection",
+      "params": {
+        "checkpoint": "D15",
+        "verticalToleranceDeg": 4,
+        "horizontalTextToleranceDeg": 5
+      }
+    },
+    {
+      "id": "R09",
+      "name": "配合代号",
+      "elements": "公差与配合、装配尺寸",
+      "ruleClass": "C",
+      "severity": "关键",
+      "standard": "GB/T 1800.1-2020",
+      "machineCheckable": "能",
+      "logic": "匹配「基本尺寸＋公差带／公差带」；斜杠前为孔（大写字母）、后为轴（小写字母）；基孔制应为 H*/?*，基轴制应为 ?*/h*；两公差带代号须在标准公差表中存在。大小写颠倒判错。",
+      "exceptions": [
+        "只注极限偏差不注公差带代号者，改按偏差数值与基本尺寸核算",
+        "非配合的单一尺寸不套用配合代号规则"
+      ],
+      "checkpoints": [
+        {
+          "id": "D18",
+          "defect": "配合注为 φ30 h7/K6",
+          "severity": "关键"
+        }
+      ],
+      "checkType": "fitCode",
+      "params": {
+        "checkpoint": "D18",
+        "toleranceLibraryVersion": "GB-T1800.1-2020"
+      }
+    },
+    {
+      "id": "R10",
+      "name": "几何公差框格",
+      "elements": "框格结构、基准、框格高度",
+      "ruleClass": "B",
+      "severity": "严重",
+      "standard": "GB/T 1182-2018",
+      "machineCheckable": "能（需人工复核）",
+      "logic": "① 格数不少于该项目最小格数：形状公差 2 格，方向与位置公差 3 格，同轴度／对称度须含基准格；② 框格高度＝2×字高，同图须一致；③ 基准字母须在图面存在对应基准符号，且不与件号等代号冲突。",
+      "exceptions": [
+        "单一要素的形状公差（直线度、平面度、圆度）可仅 2 格、无基准，按项目类型取最小格数"
+      ],
+      "checkpoints": [
+        {
+          "id": "D19",
+          "defect": "同轴度框格「◎｜φ0.05」无基准格",
+          "severity": "严重"
+        },
+        {
+          "id": "D20",
+          "defect": "垂直度框格高 5，同图另一框格 7",
+          "severity": "一般"
+        }
+      ],
+      "checkType": "featureControlFrame",
+      "params": {
+        "minCellsShape": 2,
+        "minCellsLocation": 3,
+        "heightConsistencyCheckpoint": "D20",
+        "datumCheckpoint": "D19",
+        "heightFactor": 2
+      }
+    },
+    {
+      "id": "R11",
+      "name": "表面结构标注",
+      "elements": "粗糙度符号、Ra 代号、统一注法",
+      "ruleClass": "B",
+      "severity": "严重",
+      "standard": "GB/T 131-2006",
+      "machineCheckable": "能",
+      "logic": "每处粗糙度标注须含 Ra（或 Rz）代号＋数值＋完整符号，仅写数值判错；统一注法须为「其余＋符号＋Ra 值」且置于图面右上角；已用统一注法覆盖的表面，图面不再逐处标注不判漏。",
+      "exceptions": [
+        "非加工表面可只画基本符号、不注参数值",
+        "镀涂前粗糙度另有规定者按工艺文件判定"
+      ],
+      "checkpoints": [
+        {
+          "id": "D21",
+          "defect": "立柱表面注「6.3」「3.2」，缺 Ra",
+          "severity": "严重"
+        },
+        {
+          "id": "D22",
+          "defect": "右上角「其余」注法只写 12.5",
+          "severity": "严重"
+        }
+      ],
+      "checkType": "surfaceFinish",
+      "params": {
+        "surfaceCheckpoint": "D21",
+        "uniformCheckpoint": "D22",
+        "requireRa": true,
+        "uniformKeyword": "其余"
+      }
+    },
+    {
+      "id": "R12",
+      "name": "材料牌号",
+      "elements": "明细栏材料栏、技术要求",
+      "ruleClass": "C",
+      "severity": "严重",
+      "standard": "GB/T 699-2015 等",
+      "machineCheckable": "能（需牌号库）",
+      "logic": "明细栏材料栏字符串须命中标准牌号库；含「#」后缀（如 45#）或老牌号写法（如 Q235-A）判为旧习惯写法；宜同时给出材料标准号。",
+      "exceptions": [
+        "企业标准牌号、引进牌号、复合材料牌号不在国标库内，命中企业牌号库即视为合规，须记录库版本号"
+      ],
+      "checkpoints": [
+        {
+          "id": "D08",
+          "defect": "件 2 材料注为「45#」",
+          "severity": "严重"
+        }
+      ],
+      "checkType": "materialGrade",
+      "params": {
+        "checkpoint": "D08",
+        "libraryVersion": "GB-MAT-2026.11"
+      }
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "D01",
+      "ruleId": "R01",
+      "defect": "左侧装订边 15 mm（应 25 mm）",
+      "severity": "一般"
+    },
+    {
+      "id": "D02",
+      "ruleId": "R02",
+      "defect": "标题栏缺版次栏",
+      "severity": "严重"
+    },
+    {
+      "id": "D03",
+      "ruleId": "R02",
+      "defect": "标题栏缺「共 X 张 第 X 张」",
+      "severity": "一般"
+    },
+    {
+      "id": "D04",
+      "ruleId": "R02",
+      "defect": "标准化签署栏空白",
+      "severity": "严重"
+    },
+    {
+      "id": "D05",
+      "ruleId": "R02",
+      "defect": "阶段标记栏空白",
+      "severity": "严重"
+    },
+    {
+      "id": "D06",
+      "ruleId": "R06",
+      "defect": "图样名称字高 2.5（应 ≥5）",
+      "severity": "一般"
+    },
+    {
+      "id": "D07",
+      "ruleId": "R03",
+      "defect": "标 1:2，实测为 1:1",
+      "severity": "关键"
+    },
+    {
+      "id": "D08",
+      "ruleId": "R12",
+      "defect": "件 2 材料注为「45#」",
+      "severity": "严重"
+    },
+    {
+      "id": "D09",
+      "ruleId": "R04",
+      "defect": "件 4/5/6 在图面无件号",
+      "severity": "关键"
+    },
+    {
+      "id": "D10",
+      "ruleId": "R04",
+      "defect": "件号 3 在主视图与剖视图重复标注",
+      "severity": "一般"
+    },
+    {
+      "id": "D11",
+      "ruleId": "R04",
+      "defect": "件号 2 指引线空端、穿越轮廓",
+      "severity": "一般"
+    },
+    {
+      "id": "D12",
+      "ruleId": "R05",
+      "defect": "底板可见轮廓用 0.25 细线",
+      "severity": "关键"
+    },
+    {
+      "id": "D13",
+      "ruleId": "R05",
+      "defect": "左立柱轴线用细实线",
+      "severity": "严重"
+    },
+    {
+      "id": "D14",
+      "ruleId": "R06",
+      "defect": "技术要求正文 2.5 号",
+      "severity": "一般"
+    },
+    {
+      "id": "D15",
+      "ruleId": "R08",
+      "defect": "竖直尺寸「100」数字水平书写",
+      "severity": "关键"
+    },
+    {
+      "id": "D16",
+      "ruleId": "R07",
+      "defect": "中心距「130」两端无尺寸界线",
+      "severity": "一般"
+    },
+    {
+      "id": "D17",
+      "ruleId": "R07",
+      "defect": "立柱直径注为「40」，漏 φ",
+      "severity": "关键"
+    },
+    {
+      "id": "D18",
+      "ruleId": "R09",
+      "defect": "配合注为 φ30 h7/K6",
+      "severity": "关键"
+    },
+    {
+      "id": "D19",
+      "ruleId": "R10",
+      "defect": "同轴度框格「◎｜φ0.05」无基准格",
+      "severity": "严重"
+    },
+    {
+      "id": "D20",
+      "ruleId": "R10",
+      "defect": "垂直度框格高 5，同图另一框格 7",
+      "severity": "一般"
+    },
+    {
+      "id": "D21",
+      "ruleId": "R11",
+      "defect": "立柱表面注「6.3」「3.2」，缺 Ra",
+      "severity": "严重"
+    },
+    {
+      "id": "D22",
+      "ruleId": "R11",
+      "defect": "右上角「其余」注法只写 12.5",
+      "severity": "严重"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+import { McViewType, OSnapMode, McCore } from 'McCore';
+declare const setGrid: (active: boolean) => Promise<void>;
+declare const setCaptureMode: (active: boolean) => Promise<void>;
+declare const setCaptureType: (type: OSnapMode) => Promise<void>;
+declare const setOrthoMode: (active: boolean) => Promise<void>;
+declare const setAxisTrack: (active: boolean, angle: number) => Promise<void>;
+declare const setObjTrack: (active: boolean) => Promise<void>;
+declare const setObjCapture: (active: boolean) => Promise<void>;
+declare const setLineWidthShow: (active: boolean) => Promise<void>;
+declare const setOpacity: (active: boolean) => Promise<void>;
+declare const setViewType: (core: McCore, type: McViewType) => Promise<void>;
+declare const setViewSync: (core: McCore, active: boolean) => Promise<void>;
+export { setGrid, setCaptureMode, setCaptureType, setOrthoMode, setAxisTrack, setObjTrack, setObjCapture, setLineWidthShow, setViewType, setOpacity, setViewSync, };

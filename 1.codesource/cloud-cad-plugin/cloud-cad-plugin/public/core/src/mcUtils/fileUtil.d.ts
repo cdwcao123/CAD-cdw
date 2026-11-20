@@ -1,0 +1,13 @@
+import { McCore } from '../mcCore';
+export declare const getFilenameFromUrl: (urlString: string) => string;
+export declare const getFileExtension: (filename: string) => string;
+export declare const getFileNameWithoutExtensionCapture: (fileName: string) => string;
+export declare const unZipFileToArrayBuffer: (file: File | Blob) => Promise<ArrayBuffer | undefined>;
+export declare const toFixedOrOriginal: (num: number | string, decimalPlaces: number) => string | number;
+export declare const zipFileToBlob: (file: File) => Promise<Blob>;
+export declare const convertObjectToBuffer: (jsonObject: object) => ArrayBuffer;
+export declare const convertCoreToMcdFileOrArrayBuffer: (core: McCore, outFileType?: string, fileName?: string) => File | ArrayBuffer | undefined;
+export declare const downloadFileOrBlob: (data: Blob | File, filename: string) => void;
+export declare const selectSingleFile: (accept?: string) => Promise<File | undefined>;
+export declare const convertFileToBufferOrBase64: (file: File, outType?: string) => Promise<ArrayBuffer | string>;
+export declare function objectToFormData(obj: any, formData?: FormData, parentKey?: string): FormData;
